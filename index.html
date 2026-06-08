@@ -4,153 +4,265 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nalar Etam | Belajar dengan Nalar, Bukan Hafalan</title>
-    
-    <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'] },
-                    colors: {
-                        brand: {
-                            50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 900: '#1e3a8a',
-                        }
-                    }
-                }
-            }
-        }
+        tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] }, colors: { brand: { 50: '#eff6ff', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8' } } } } }
     </script>
 </head>
-<body class="font-sans text-slate-800 bg-slate-50 antialiased selection:bg-brand-500 selection:text-white flex flex-col min-h-screen">
+<body class="font-sans text-slate-800 bg-slate-50 antialiased selection:bg-brand-500 selection:text-white">
 
     <div id="navbar-container"></div>
 
-    <main class="flex-grow">
-        <!-- 1. Hero Section -->
-        <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-white">
-            <div class="absolute top-0 left-1/2 w-full -translate-x-1/2 h-full overflow-hidden -z-10 pointer-events-none">
-                <div class="absolute -top-[10%] -right-[10%] w-[500px] h-[500px] rounded-full bg-brand-50 blur-3xl opacity-60"></div>
-                <div class="absolute top-[20%] -left-[10%] w-[400px] h-[400px] rounded-full bg-blue-50 blur-3xl opacity-60"></div>
+    <main>
+        <!-- 1. HERO -->
+        <section class="pt-32 pb-24 text-center px-4">
+            <h1 class="text-5xl md:text-7xl font-extrabold text-slate-900 mb-6">Belajar dengan Nalar,<br>Bukan Hafalan.</h1>
+            <p class="text-xl text-slate-600 max-w-2xl mx-auto mb-10">Platform belajar TKA Matematika yang membantu siswa memahami konsep melalui visualisasi, simulasi interaktif, dan latihan berbasis penalaran.</p>
+            <div class="flex justify-center gap-4">
+                <a href="materi/bilangan/index.html" class="bg-brand-600 text-white px-8 py-4 rounded-full font-bold hover:bg-brand-700 transition">Mulai Belajar</a>
+                <a href="pages/kelas-gratis.html" class="bg-white border-2 border-slate-200 px-8 py-4 rounded-full font-bold hover:border-brand-600 transition">Gabung Kelas Gratis</a>
             </div>
-            <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
-                <h1 class="text-5xl md:text-7xl font-extrabold text-slate-900 tracking-tight mb-6">Belajar dengan Nalar, <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-blue-400">Bukan Hafalan.</span></h1>
-                <p class="text-lg md:text-xl text-slate-600 mb-10 max-w-2xl mx-auto">Pahami "mengapa" suatu konsep matematika bekerja. Bangun intuisimu melalui visualisasi interaktif.</p>
-                <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
-                    <a href="materi/bilangan/index.html" class="w-full sm:w-auto bg-brand-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-brand-700 transition-all flex items-center justify-center gap-2">Mulai Belajar</a>
-                    <a href="pages/kelas-gratis.html" class="w-full sm:w-auto bg-white text-brand-600 border-2 border-slate-200 px-8 py-4 rounded-full text-lg font-semibold hover:border-brand-600 transition-all flex items-center justify-center gap-2">Gabung Kelas Gratis</a>
+            <!-- Placeholder Visual Hero -->
+            <div class="mt-16 w-full max-w-4xl mx-auto h-64 bg-brand-100 rounded-3xl opacity-50 flex items-center justify-center">
+                <i class="ph-duotone ph-geometry text-brand-600 text-9xl"></i>
+            </div>
+        </section>
+
+        <!-- 2. STATISTIK -->
+        <section class="py-16 bg-white border-y border-slate-200">
+            <div class="max-w-6xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="text-center"><p class="text-4xl font-extrabold text-brand-600">5 Bab</p><p class="text-slate-500 mt-2">Materi Interaktif</p></div>
+                <div class="text-center"><p class="text-4xl font-extrabold text-brand-600">3 Level</p><p class="text-slate-500 mt-2">Latihan Bertingkat</p></div>
+                <div class="text-center"><p class="text-4xl font-extrabold text-brand-600">40+</p><p class="text-slate-500 mt-2">Simulasi Interaktif</p></div>
+                <div class="text-center"><p class="text-4xl font-extrabold text-brand-600">Gratis</p><p class="text-slate-500 mt-2">Program Belajar</p></div>
+            </div>
+        </section>
+
+        <!-- 3. KENAPA NALAR ETAM -->
+        <section class="py-24 px-4 max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-16">Kenapa Belajar di Nalar Etam?</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="p-8 bg-white rounded-3xl border border-slate-200 shadow-sm"><i class="ph-duotone ph-brain text-4xl text-brand-600 mb-4"></i><h3 class="text-xl font-bold mb-2">Belajar dengan Nalar</h3><p class="text-slate-600">Tidak sekadar menghafal rumus, tetapi memahami alasan di balik setiap konsep.</p></div>
+                <div class="p-8 bg-white rounded-3xl border border-slate-200 shadow-sm"><i class="ph-duotone ph-shapes text-4xl text-brand-600 mb-4"></i><h3 class="text-xl font-bold mb-2">Visual dan Interaktif</h3><p class="text-slate-600">Konsep abstrak dijelaskan melalui simulasi dan visualisasi yang mudah dipahami.</p></div>
+                <div class="p-8 bg-white rounded-3xl border border-slate-200 shadow-sm"><i class="ph-duotone ph-certificate text-4xl text-brand-600 mb-4"></i><h3 class="text-xl font-bold mb-2">Sesuai Kerangka TKA</h3><p class="text-slate-600">Materi mengikuti Kerangka Asesmen TKA resmi dari Pusmendik.</p></div>
+                <div class="p-8 bg-white rounded-3xl border border-slate-200 shadow-sm"><i class="ph-duotone ph-map-trifold text-4xl text-brand-600 mb-4"></i><h3 class="text-xl font-bold mb-2">Terstruktur</h3><p class="text-slate-600">Roadmap belajar yang jelas dari konsep dasar hingga penalaran tingkat tinggi.</p></div>
+            </div>
+        </section>
+
+        <!-- 4. MATERI TKA -->
+        <section class="py-24 px-4 bg-slate-100">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-4">Jelajahi Materi TKA Matematika</h2>
+                <p class="text-center text-slate-600 mb-16">Semua materi disusun berdasarkan Kerangka Asesmen TKA SMA/MA/SMK.</p>
+                <div class="grid md:grid-cols-3 lg:grid-cols-5 gap-6">
+                    <!-- Materi Cards -->
+                    <div class="bg-white p-6 rounded-2xl shadow-sm"><h3 class="font-bold mb-4">Bilangan</h3><ul class="text-sm text-slate-600 space-y-2"><li>Bilangan Real</li><li>Operasi Bilangan</li><li>Eksponen</li><li>Bentuk Akar</li></ul></div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm"><h3 class="font-bold mb-4">Aljabar</h3><ul class="text-sm text-slate-600 space-y-2"><li>SPL Multivariabel</li><li>Program Linear</li><li>Fungsi</li><li>Barisan & Deret</li></ul></div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm"><h3 class="font-bold mb-4">Geometri & Pengukuran</h3><ul class="text-sm text-slate-600 space-y-2"><li>Objek Geometri</li><li>Transformasi</li><li>Pengukuran</li></ul></div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm"><h3 class="font-bold mb-4">Trigonometri</h3><ul class="text-sm text-slate-600 space-y-2"><li>Sin, Cos, Tan</li><li>Cot, Sec, Csc</li></ul></div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm"><h3 class="font-bold mb-4">Data & Peluang</h3><ul class="text-sm text-slate-600 space-y-2"><li>Penyajian Data</li><li>Statistik</li><li>Peluang</li></ul></div>
                 </div>
             </div>
         </section>
 
-        <section id="program" class="py-24 bg-slate-900 text-white">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <!-- 5. ROADMAP BELAJAR (Versi Modern) -->
+        <section id="roadmap" class="py-24 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6">
                 <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Program Belajar Nalar Etam</h2>
-                    <p class="text-slate-400">Pilihan belajar sesuai kebutuhan dan anggaran siswa.</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Roadmap Belajar TKA</h2>
+                    <p class="text-lg text-slate-600">Ikuti alur terstruktur ini untuk menguasai materi langkah demi langkah.</p>
                 </div>
 
-                <!-- Grid Program -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-                    <!-- Kelas Gratis -->
-                    <div class="bg-slate-800 p-6 rounded-3xl border border-slate-700">
-                        <h3 class="text-xl font-bold mb-4 text-emerald-400">Kelas Gratis</h3>
-                        <div class="text-2xl font-bold mb-4">Gratis</div>
-                        <p class="text-sm text-slate-400 mb-4">Maks 50 peserta</p>
-                        <ul class="text-sm space-y-2 mb-6">
-                            <li>✓ Materi pembelajaran</li>
-                            <li>✓ Pembahasan soal</li>
-                            <li>✓ Diskusi kelompok</li>
-                            <li>✓ Akses komunitas</li>
-                        </ul>
+                <!-- Vertical Timeline Path -->
+                <div class="relative space-y-8 before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-slate-200 before:content-['']">
+                    
+                    <!-- Bab 1: Bilangan -->
+                    <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                        <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-blue-600 text-white shadow shrink-0">
+                            <i class="ph-fill ph-calculator"></i>
+                        </div>
+                        <div class="ml-6 md:ml-0 md:w-5/12 md:odd:ml-0 md:even:mr-0 p-6 bg-white border border-slate-200 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+                            <span class="text-xs font-bold text-blue-600 uppercase tracking-wider">Bab 1</span>
+                            <h3 class="text-lg font-bold text-slate-900">Bilangan</h3>
+                        </div>
                     </div>
-                    <!-- Kelas Group -->
-                    <div class="bg-slate-800 p-6 rounded-3xl border border-slate-700">
-                        <h3 class="text-xl font-bold mb-4">Kelas Group</h3>
-                        <div class="text-2xl font-bold mb-4">Rp30rb<span class="text-sm font-normal">/jam</span></div>
-                        <p class="text-sm text-slate-400 mb-4">Maks 5 peserta</p>
-                        <ul class="text-sm space-y-2 mb-6">
-                            <li>✓ Lebih interaktif</li>
-                            <li>✓ Banyak diskusi</li>
-                            <li>✓ Belajar bareng teman</li>
-                        </ul>
+
+                    <!-- Bab 2: Aljabar -->
+                    <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                        <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-purple-500 text-white shadow shrink-0">
+                            <i class="ph-fill ph-function"></i>
+                        </div>
+                        <div class="ml-6 md:ml-0 md:w-5/12 md:odd:ml-0 md:even:mr-0 p-6 bg-white border border-slate-200 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+                            <span class="text-xs font-bold text-purple-500 uppercase tracking-wider">Bab 2</span>
+                            <h3 class="text-lg font-bold text-slate-900">Aljabar</h3>
+                        </div>
                     </div>
-                    <!-- Kelas Semiprivat -->
-                    <div class="bg-slate-800 p-6 rounded-3xl border border-slate-700">
-                        <h3 class="text-xl font-bold mb-4">Semiprivat</h3>
-                        <div class="text-2xl font-bold mb-4">Rp60rb<span class="text-sm font-normal">/jam</span></div>
-                        <p class="text-sm text-slate-400 mb-4">Maks 2 peserta</p>
-                        <ul class="text-sm space-y-2 mb-6">
-                            <li>✓ Sangat intensif</li>
-                            <li>✓ Personal learning</li>
-                            <li>✓ Fleksibel</li>
-                        </ul>
+
+                    <!-- Bab 3: Geometri -->
+                    <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                        <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-emerald-500 text-white shadow shrink-0">
+                            <i class="ph-fill ph-shapes"></i>
+                        </div>
+                        <div class="ml-6 md:ml-0 md:w-5/12 md:odd:ml-0 md:even:mr-0 p-6 bg-white border border-slate-200 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+                            <span class="text-xs font-bold text-emerald-500 uppercase tracking-wider">Bab 3</span>
+                            <h3 class="text-lg font-bold text-slate-900">Geometri & Pengukuran</h3>
+                        </div>
                     </div>
-                    <!-- Kelas Privat -->
-                    <div class="bg-brand-700 p-6 rounded-3xl border border-brand-500 shadow-xl">
-                        <h3 class="text-xl font-bold mb-4 text-white">Kelas Privat</h3>
-                        <div class="text-2xl font-bold mb-4">Rp100rb<span class="text-sm font-normal">/jam</span></div>
-                        <p class="text-sm text-brand-200 mb-4">1 Peserta (Eksklusif)</p>
-                        <ul class="text-sm space-y-2 mb-6">
-                            <li>✓ Fokus penuh 1-on-1</li>
-                            <li>✓ Materi custom</li>
-                            <li>✓ Strategi personal</li>
-                        </ul>
+
+                    <!-- Bab 4: Trigonometri -->
+                    <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                        <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-rose-500 text-white shadow shrink-0">
+                            <i class="ph-fill ph-triangle"></i>
+                        </div>
+                        <div class="ml-6 md:ml-0 md:w-5/12 md:odd:ml-0 md:even:mr-0 p-6 bg-white border border-slate-200 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+                            <span class="text-xs font-bold text-rose-500 uppercase tracking-wider">Bab 4</span>
+                            <h3 class="text-lg font-bold text-slate-900">Trigonometri</h3>
+                        </div>
+                    </div>
+
+                    <!-- Bab 5: Data & Peluang -->
+                    <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                        <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-amber-500 text-white shadow shrink-0">
+                            <i class="ph-fill ph-chart-bar"></i>
+                        </div>
+                        <div class="ml-6 md:ml-0 md:w-5/12 md:odd:ml-0 md:even:mr-0 p-6 bg-white border border-slate-200 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+                            <span class="text-xs font-bold text-amber-500 uppercase tracking-wider">Bab 5</span>
+                            <h3 class="text-lg font-bold text-slate-900">Data dan Peluang</h3>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Perbandingan Program -->
-                <div class="overflow-x-auto bg-slate-800 rounded-3xl p-8 mb-16">
-                    <h3 class="text-xl font-bold mb-6 text-center">Perbandingan Program</h3>
-                    <table class="w-full text-center border-collapse">
-                        <thead>
-                            <tr class="border-b border-slate-700">
-                                <th class="py-3 px-4">Program</th>
-                                <th class="py-3 px-4">Harga</th>
-                                <th class="py-3 px-4">Kuota</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-slate-300">
-                            <tr><td class="py-3 px-4">Gratis</td><td class="py-3 px-4">Rp0</td><td class="py-3 px-4">50</td></tr>
-                            <tr><td class="py-3 px-4">Group</td><td class="py-3 px-4">Rp30rb</td><td class="py-3 px-4">5</td></tr>
-                            <tr><td class="py-3 px-4">Semiprivat</td><td class="py-3 px-4">Rp60rb</td><td class="py-3 px-4">2</td></tr>
-                            <tr><td class="py-3 px-4">Privat</td><td class="py-3 px-4">Rp100rb</td><td class="py-3 px-4">1</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <!-- CTA Penutup -->
-                <div class="text-center">
-                    <h3 class="text-2xl font-bold mb-4">Masih bingung memilih program?</h3>
-                    <p class="text-slate-400 mb-8">Hubungi Nalar Etam untuk mendapatkan rekomendasi program yang paling sesuai.</p>
-                    <div class="flex flex-col sm:flex-row justify-center gap-4">
-                        <a href="pages/kelas-gratis.html" class="bg-emerald-500 hover:bg-emerald-600 px-8 py-3 rounded-full font-bold">Daftar Kelas Gratis</a>
-                        <a href="pages/kontak.html" class="bg-white text-slate-900 hover:bg-slate-100 px-8 py-3 rounded-full font-bold">Konsultasi Program</a>
-                    </div>
+                <div class="text-center mt-16">
+                    <a href="pages/roadmap.html" class="inline-flex items-center gap-2 bg-slate-900 text-white px-8 py-3 rounded-full font-bold hover:bg-slate-800 transition-colors">
+                        Lihat Roadmap Lengkap <i class="ph-bold ph-arrow-right"></i>
+                    </a>
                 </div>
             </div>
         </section>
 
-        <!-- 7. Donasi CTA -->
-        <section class="py-20 bg-brand-50 border-y border-brand-100">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-                <i class="ph-duotone ph-heart text-5xl text-rose-500 mb-4 inline-block"></i>
-                <h2 class="text-3xl font-bold text-slate-900 mb-4">Dukung Pendidikan Berkualitas</h2>
-                <a href="pages/donasi.html" class="inline-flex items-center gap-2 bg-rose-500 text-white px-8 py-3 rounded-full font-bold hover:bg-rose-600">Dukung via Saweria</a>
+        <!-- 6. PROGRAM BELAJAR (Versi Premium) -->
+        <section id="program" class="py-24 bg-slate-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Pilih Program yang Sesuai</h2>
+                    <p class="text-lg text-slate-600">Mulai dari akses gratis hingga bimbingan privat intensif.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    
+                    <!-- 1. Kelas Gratis -->
+                    <div class="bg-white p-8 rounded-3xl border-2 border-slate-200 hover:border-brand-500 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+                        <div class="mb-6">
+                            <span class="inline-block px-3 py-1 rounded-full bg-emerald-50 text-emerald-600 text-xs font-bold uppercase tracking-widest mb-4">Gratis</span>
+                            <h3 class="text-xl font-bold text-slate-900 mb-2">Kelas Gratis</h3>
+                            <p class="text-3xl font-extrabold text-slate-900">Rp0</p>
+                            <p class="text-sm text-slate-500 mt-1">Maks 50 peserta</p>
+                        </div>
+                        <ul class="space-y-4 mb-8 text-sm text-slate-600 flex-grow">
+                            <li class="flex items-center gap-2"><i class="ph-bold ph-check text-emerald-500"></i> Materi pembelajaran</li>
+                            <li class="flex items-center gap-2"><i class="ph-bold ph-check text-emerald-500"></i> Diskusi kelompok</li>
+                            <li class="flex items-center gap-2"><i class="ph-bold ph-check text-emerald-500"></i> Roadmap TKA</li>
+                        </ul>
+                        <a href="pages/kelas-gratis.html" class="w-full text-center py-3 rounded-xl border-2 border-brand-600 text-brand-600 font-bold hover:bg-brand-600 hover:text-white transition-all">Gabung Sekarang</a>
+                    </div>
+
+                    <!-- 2. Kelas Group -->
+                    <div class="bg-white p-8 rounded-3xl border-2 border-slate-200 hover:border-brand-500 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+                        <div class="mb-6">
+                            <span class="inline-block px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-widest mb-4">Populer</span>
+                            <h3 class="text-xl font-bold text-slate-900 mb-2">Kelas Group</h3>
+                            <p class="text-3xl font-extrabold text-slate-900">Rp30rb<span class="text-sm font-medium text-slate-400">/jam</span></p>
+                            <p class="text-sm text-slate-500 mt-1">Maks 5 siswa</p>
+                        </div>
+                        <ul class="space-y-4 mb-8 text-sm text-slate-600 flex-grow">
+                            <li class="flex items-center gap-2"><i class="ph-bold ph-check text-blue-500"></i> Lebih interaktif</li>
+                            <li class="flex items-center gap-2"><i class="ph-bold ph-check text-blue-500"></i> Banyak diskusi</li>
+                            <li class="flex items-center gap-2"><i class="ph-bold ph-check text-blue-500"></i> Belajar bersama teman</li>
+                        </ul>
+                        <a href="pages/kontak.html" class="w-full text-center py-3 rounded-xl bg-slate-900 text-white font-bold hover:bg-slate-800 transition-all">Pilih Program</a>
+                    </div>
+
+                    <!-- 3. Kelas Semiprivat -->
+                    <div class="bg-white p-8 rounded-3xl border-2 border-slate-200 hover:border-brand-500 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+                        <div class="mb-6">
+                            <span class="inline-block px-3 py-1 rounded-full bg-purple-50 text-purple-600 text-xs font-bold uppercase tracking-widest mb-4">Intensif</span>
+                            <h3 class="text-xl font-bold text-slate-900 mb-2">Semiprivat</h3>
+                            <p class="text-3xl font-extrabold text-slate-900">Rp60rb<span class="text-sm font-medium text-slate-400">/jam</span></p>
+                            <p class="text-sm text-slate-500 mt-1">Maks 2 siswa</p>
+                        </div>
+                        <ul class="space-y-4 mb-8 text-sm text-slate-600 flex-grow">
+                            <li class="flex items-center gap-2"><i class="ph-bold ph-check text-purple-500"></i> Lebih personal</li>
+                            <li class="flex items-center gap-2"><i class="ph-bold ph-check text-purple-500"></i> Perhatian ekstra</li>
+                            <li class="flex items-center gap-2"><i class="ph-bold ph-check text-purple-500"></i> Fleksibel</li>
+                        </ul>
+                        <a href="pages/kontak.html" class="w-full text-center py-3 rounded-xl bg-slate-900 text-white font-bold hover:bg-slate-800 transition-all">Pilih Program</a>
+                    </div>
+
+                    <!-- 4. Kelas Privat -->
+                    <div class="bg-slate-900 p-8 rounded-3xl border-2 border-slate-900 shadow-xl flex flex-col transform lg:scale-105 z-10">
+                        <div class="mb-6">
+                            <span class="inline-block px-3 py-1 rounded-full bg-brand-500 text-white text-xs font-bold uppercase tracking-widest mb-4">Eksklusif</span>
+                            <h3 class="text-xl font-bold text-white mb-2">Kelas Privat</h3>
+                            <p class="text-3xl font-extrabold text-white">Rp100rb<span class="text-sm font-medium text-slate-400">/jam</span></p>
+                            <p class="text-sm text-slate-400 mt-1">1 siswa</p>
+                        </div>
+                        <ul class="space-y-4 mb-8 text-sm text-slate-300 flex-grow">
+                            <li class="flex items-center gap-2"><i class="ph-bold ph-check text-brand-400"></i> Fokus penuh</li>
+                            <li class="flex items-center gap-2"><i class="ph-bold ph-check text-brand-400"></i> Materi disesuaikan</li>
+                            <li class="flex items-center gap-2"><i class="ph-bold ph-check text-brand-400"></i> Jadwal fleksibel</li>
+                            <li class="flex items-center gap-2"><i class="ph-bold ph-check text-brand-400"></i> Evaluasi berkala</li>
+                        </ul>
+                        <a href="pages/kontak.html" class="w-full text-center py-3 rounded-xl bg-brand-600 text-white font-bold hover:bg-brand-700 transition-all">Pilih Privat</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. KELAS GRATIS -->
+        <section class="py-24 px-4 bg-brand-50">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl font-bold mb-6">Belajar Tidak Seharusnya Terhalang Biaya</h2>
+                <p class="text-lg text-slate-600 mb-10">Kami berupaya memberikan akses pembelajaran berkualitas bagi siswa yang membutuhkan.</p>
+                <div class="flex justify-center gap-8 mb-10 text-slate-700">
+                    <span>✓ Komunitas</span><span>✓ Materi TKA</span><span>✓ Pembahasan</span><span>✓ Pendampingan</span>
+                </div>
+                <a href="pages/kelas-gratis.html" class="bg-brand-600 text-white px-8 py-4 rounded-full font-bold">Daftar Kelas Gratis</a>
+            </div>
+        </section>
+
+        <!-- 8. DONASI -->
+        <section class="py-24 px-4 text-center">
+            <h2 class="text-4xl font-bold mb-6">Bantu Nalar Etam Tumbuh</h2>
+            <p class="text-slate-600 mb-12 max-w-xl mx-auto">Donasi membantu pengembangan materi, simulasi, dan kelas gratis.</p>
+            <a href="pages/donasi.html" class="bg-rose-500 text-white px-8 py-3 rounded-full font-bold">Dukung via Saweria</a>
+        </section>
+
+        <!-- 9. TESTIMONIAL -->
+        <section class="py-24 bg-white">
+            <div class="max-w-6xl mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center mb-16">Apa Kata Mereka?</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="p-6 border border-slate-100 rounded-2xl shadow-sm"><p class="italic text-slate-600 mb-4">"Nalar Etam mengubah cara saya melihat matematika."</p><h4 class="font-bold">- Budi, Siswa</h4></div>
+                    <div class="p-6 border border-slate-100 rounded-2xl shadow-sm"><p class="italic text-slate-600 mb-4">"Visualisasinya sangat membantu saya paham konsep sulit."</p><h4 class="font-bold">- Ani, Siswa</h4></div>
+                    <div class="p-6 border border-slate-100 rounded-2xl shadow-sm"><p class="italic text-slate-600 mb-4">"Sangat membantu persiapan TKA saya!"</p><h4 class="font-bold">- Citra, Siswa</h4></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. FINAL CTA -->
+        <section class="py-24 px-4 bg-brand-600 text-white text-center">
+            <h2 class="text-4xl font-bold mb-6">Siap Belajar dengan Cara yang Berbeda?</h2>
+            <div class="flex justify-center gap-4">
+                <a href="materi/bilangan/index.html" class="bg-white text-brand-600 px-8 py-4 rounded-full font-bold">Mulai Belajar</a>
+                <a href="pages/kelas-gratis.html" class="bg-brand-700 text-white px-8 py-4 rounded-full font-bold">Gabung Kelas Gratis</a>
             </div>
         </section>
     </main>
 
     <div id="footer-container"></div>
-
     <script src="components/navbar.js"></script>
     <script src="components/footer.js"></script>
 </body>

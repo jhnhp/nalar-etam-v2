@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulasi Klasifikasi Bilangan - Nalar Etam</title>
+    
+    <!-- Font & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- MathJax (Tanpa Polyfill) -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        :root {
+            /* Brand Colors Nalar Etam */
+            --brand-50: #eff6ff;
+            --brand-100: #dbeafe;
+            --brand-500: #3b82f6;
+            --brand-600: #2563eb;
+            --slate-50: #f8fafc;
+            --slate-100: #f1f5f9;
+            --slate-200: #e2e8f0;
+            --slate-400: #94a3b8;
+            --slate-500: #64748b;
+            --slate-600: #475569;
+            --slate-800: #1e293b;
+            --slate-900: #0f172a;
+            
+            /* Hierarchy Colors */
+            --c-real: var(--slate-400);
+            --c-irasional: #f43f5e; /* Rose */
+            --c-rasional: var(--brand-500);
+            --c-bulat: #10b981; /* Emerald */
+            --c-cacah: #f59e0b; /* Amber */
+            --c-asli: #8b5cf6; /* Purple */
+            
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--slate-50);
+            color: var(--slate-800);
+            line-height: 1.6;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        /* Container & Layout Utama */
+        .workspace {
+            display: flex;
+            flex: 1;
+            padding: 1.5rem;
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* Panel Kiri: Data Uji */
+        .panel-angka {
+            width: 280px;
+            background-color: var(--white);
+            border: 1px solid var(--slate-200);
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            flex-shrink: 0;
+        }
+        .panel-angka h2 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+        .panel-angka p {
+            font-size: 0.8rem;
+            color: var(--slate-500);
+            text-align: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--slate-100);
+        }
+        .number-pool {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: center;
+            align-content: flex-start;
+            flex: 1;
+        }
+
+        /* Draggable Items */
+        .angka-item {
+            width: 55px;
+            height: 55px;
+            background-color: var(--slate-800);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: grab;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            user-select: none;
+            transition: transform 0.2s;
+            position: relative;
+            z-index: 50;
+        }
+        .angka-item:hover { transform: scale(1.05); }
+        .angka-item:active { cursor: grabbing; transform: scale(1.1); }
+        .angka-item.dragged { opacity: 0.5; }
+        
+        /* Specific trick item */
+        .item-trick { background-color: var(--brand-600); }
+        .trick-indicator {
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            width: 16px;
+            height: 16px;
+            background-color: var(--c-irasional);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            animation: pulse 2s infinite;
+        }
+
+        /* Panel Kanan: Dropzones & AI Insight */
+        .panel-matryoshka {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+        }
+
+        /* Insight Box */
+        .insight-box {
+            background-color: var(--white);
+            border-left: 4px solid var(--brand-500);
+            padding: 1.25rem 1.5rem;
+            border-radius: 1rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            transition: all 0.3s ease;
+        }
+        .insight-icon {
+            font-size: 2rem;
+            color: var(--brand-500);
+            margin-top: 0.25rem;
+        }
+        .insight-content h3 {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+        }
+        .insight-content p {
+            font-size: 0.95rem;
+            color: var(--slate-600);
+        }
+
+        /* Dynamic Insight States */
+        .insight-box.success { border-color: var(--c-bulat); background-color: #ecfdf5; }
+        .insight-box.success .insight-icon { color: var(--c-bulat); }
+        .insight-box.warning { border-color: var(--c-cacah); background-color: #fffbeb; }
+        .insight-box.warning .insight-icon { color: var(--c-cacah); }
+        .insight-box.error { border-color: var(--c-irasional); background-color: #fff1f2; }
+        .insight-box.error .insight-icon { color: var(--c-irasional); }
+
+        /* Matryoshka Dropzones */
+        .matryoshka-wrapper {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 1.5rem;
+            border: 1px solid var(--slate-200);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 450px;
+        }
+
+        .zone {
+            border: 2px dashed;
+            border-radius: 1.5rem;
+            position: relative;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .zone.drag-over {
+            background-color: rgba(0, 0, 0, 0.02);
+            border-style: solid;
+        }
+        .zone-label {
+            position: absolute;
+            font-weight: 700;
+            pointer-events: none;
+        }
+        .dropped-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        /* Hirarki Spesifik */
+        #zone-real {
+            width: 100%;
+            height: 100%;
+            border-color: var(--c-real);
+            background-color: var(--slate-50);
+            padding: 3.5rem 1.5rem 1.5rem;
+            flex-direction: row;
+            gap: 1rem;
+        }
+        #zone-real > .zone-label { top: 1rem; left: 1.5rem; color: var(--slate-600); font-size: 1.25rem; }
+        #zone-real > .dropped-items { position: absolute; top: 1rem; right: 1.5rem; width: 30%; justify-content: flex-end; }
+
+        #zone-irasional {
+            flex: 0.3;
+            min-width: 150px;
+            border-color: var(--c-irasional);
+            background-color: rgba(244, 63, 94, 0.05);
+            padding: 3rem 1rem 1rem;
+        }
+        #zone-irasional .zone-label { top: 0.75rem; left: 1rem; color: var(--c-irasional); }
+        #zone-irasional .dropped-items { width: 100%; justify-content: center; align-content: flex-start; height: 100%; }
+
+        #zone-rasional {
+            flex: 0.7;
+            border-color: var(--c-rasional);
+            background-color: rgba(59, 130, 246, 0.05);
+            padding: 3rem 1rem 1rem;
+        }
+        #zone-rasional .zone-label { top: 0.75rem; left: 1rem; color: var(--c-rasional); }
+        #zone-rasional > .dropped-items { width: 100%; justify-content: center; margin-bottom: 1rem; }
+
+        #zone-bulat {
+            flex: 1;
+            border-color: var(--c-bulat);
+            background-color: var(--white);
+            padding: 3rem 1rem 1rem;
+        }
+        #zone-bulat .zone-label { top: 0.75rem; left: 1rem; color: var(--c-bulat); }
+        #zone-bulat > .dropped-items { width: 100%; justify-content: center; margin-bottom: 1rem; }
+
+        #zone-cacah {
+            flex: 1;
+            border-color: var(--c-cacah);
+            background-color: rgba(245, 158, 11, 0.05);
+            padding: 3rem 1rem 1rem;
+        }
+        #zone-cacah .zone-label { top: 0.75rem; left: 1rem; color: var(--c-cacah); }
+        #zone-cacah > .dropped-items { width: 100%; justify-content: center; margin-bottom: 1rem; }
+
+        #zone-asli {
+            flex: 1;
+            border-color: var(--c-asli);
+            background-color: rgba(139, 92, 246, 0.1);
+            padding: 3rem 1rem 1rem;
+            min-height: 100px;
+        }
+        #zone-asli .zone-label { top: 0.75rem; left: 1rem; color: var(--c-asli); }
+        #zone-asli .dropped-items { width: 100%; justify-content: center; align-content: flex-start; height: 100%; }
+
+        /* Item styles after drop */
+        .zone .angka-item {
+            width: 45px;
+            height: 45px;
+            font-size: 0.95rem;
+            cursor: default;
+            background-color: var(--white);
+            color: var(--slate-800);
+            border: 2px solid var(--slate-200);
+            box-shadow: none;
+            pointer-events: auto;
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(244, 63, 94, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(244, 63, 94, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(244, 63, 94, 0); }
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-6px) rotate(-5deg); }
+            75% { transform: translateX(6px) rotate(5deg); }
+        }
+        .shake { animation: shake 0.3s ease-in-out; }
+        
+        @keyframes pop {
+            0% { transform: scale(0.8); opacity: 0;}
+            50% { transform: scale(1.15); }
+            100% { transform: scale(1); opacity: 1;}
+        }
+        .pop-in { animation: pop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+
+        /* Modal */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background-color: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 100;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+        .modal-content {
+            background-color: var(--white);
+            padding: 2.5rem;
+            border-radius: 1.5rem;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        .modal-icon {
+            width: 5rem;
+            height: 5rem;
+            background-color: #ecfdf5;
+            color: var(--c-bulat);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            margin: 0 auto 1.5rem;
+        }
+        .modal-title { font-size: 1.5rem; font-weight: 800; color: var(--slate-900); margin-bottom: 0.75rem; }
+        .modal-desc { color: var(--slate-600); margin-bottom: 2rem; }
+        .btn-modal {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--brand-600);
+            color: var(--white);
+            font-weight: 700;
+            border: none;
+            border-radius: 0.75rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-modal:hover { background-color: var(--brand-700); }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .workspace { flex-direction: column; }
+            .panel-angka { width: 100%; flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: space-between; }
+            .panel-angka p { border: none; padding: 0; margin: 0; text-align: left; max-width: 300px; }
+            .number-pool { justify-content: flex-end; }
+            
+            #zone-real { flex-direction: column; }
+            #zone-irasional { min-height: 120px; flex: none; width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="workspace">
+        
+        <!-- Panel Draggable Items -->
+        <aside class="panel-angka">
+            <div>
+                <h2>Data Uji Coba</h2>
+                <p>Tarik angka ke himpunan <strong>paling dalam/spesifik</strong> yang bisa menampungnya.</p>
+            </div>
+            <div class="number-pool" id="pool">
+                <!-- Data atribut data-target merepresentasikan Himpunan Terdalam yang valid -->
+                <div class="angka-item" draggable="true" id="num-5" data-target="zone-asli">5</div>
+                <div class="angka-item" draggable="true" id="num-0" data-target="zone-cacah">0</div>
+                <div class="angka-item" draggable="true" id="num-min3" data-target="zone-bulat">-3</div>
+                <div class="angka-item" draggable="true" id="num-half" data-target="zone-rasional">\(\frac{1}{2}\)</div>
+                <div class="angka-item" draggable="true" id="num-pi" data-target="zone-irasional">\(\pi\)</div>
+                <div class="angka-item" draggable="true" id="num-sqrt2" data-target="zone-irasional">\(\sqrt{2}\)</div>
+                
+                <!-- Jebakan Miskonsepsi -->
+                <div class="angka-item item-trick" draggable="true" id="num-sqrt4" data-target="zone-asli" data-is-trick="true">
+                    \(\sqrt{4}\)
+                    <div class="trick-indicator"><i class="ph-bold ph-warning"></i></div>
+                </div>
+                
+                <div class="angka-item" draggable="true" id="num-desimal" data-target="zone-rasional">0.33..</div>
+            </div>
+        </aside>
+
+        <!-- Panel Hierarki -->
+        <section class="panel-matryoshka">
+            
+            <!-- Insight Box -->
+            <div class="insight-box" id="insight-box">
+                <i class="ph-fill ph-robot insight-icon" id="insight-icon"></i>
+                <div class="insight-content">
+                    <h3>Asisten Nalar</h3>
+                    <p id="insight-text">Silakan tarik salah satu angka dari Data Uji Coba ke kotak himpunan di bawah. Pastikan diletakkan di "kamar" terdalam yang cocok untuknya!</p>
+                </div>
+            </div>
+
+            <!-- Matryoshka Dropzones -->
+            <div class="matryoshka-wrapper">
+                <div class="zone" id="zone-real">
+                    <span class="zone-label">Bilangan Real (\(\mathbb{R}\))</span>
+                    <div class="dropped-items"></div>
+                    
+                    <!-- Irasional -->
+                    <div class="zone" id="zone-irasional">
+                        <span class="zone-label">Irasional</span>
+                        <div class="dropped-items"></div>
+                    </div>
+
+                    <!-- Rasional -->
+                    <div class="zone" id="zone-rasional">
+                        <span class="zone-label">Rasional (\(\mathbb{Q}\))</span>
+                        <div class="dropped-items"></div>
+                        
+                        <!-- Bulat -->
+                        <div class="zone" id="zone-bulat">
+                            <span class="zone-label">Bulat (\(\mathbb{Z}\))</span>
+                            <div class="dropped-items"></div>
+                            
+                            <!-- Cacah -->
+                            <div class="zone" id="zone-cacah">
+                                <span class="zone-label">Cacah (\(\mathbb{W}\))</span>
+                                <div class="dropped-items"></div>
+                                
+                                <!-- Asli -->
+                                <div class="zone" id="zone-asli">
+                                    <span class="zone-label">Asli (\(\mathbb{N}\))</span>
+                                    <div class="dropped-items"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Modal Sukses Simulasi -->
+    <div class="modal-overlay" id="success-modal">
+        <div class="modal-content pop-in">
+            <div class="modal-icon">
+                <i class="ph-bold ph-check"></i>
+            </div>
+            <h2 class="modal-title">Luar Biasa!</h2>
+            <p class="modal-desc">Kamu telah berhasil mengklasifikasikan seluruh jenis bilangan dengan presisi nalar yang tepat, dan terhindar dari jebakan bentuk akar semu!</p>
+            <button class="btn-modal" onclick="closeModal()">Tutup & Evaluasi Hasil</button>
+        </div>
+    </div>
+
+    <!-- JavaScript Vanilla untuk Logika Simulasi -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const draggables = document.querySelectorAll('.angka-item');
+            const zones = document.querySelectorAll('.zone');
+            
+            const insightBox = document.getElementById('insight-box');
+            const insightText = document.getElementById('insight-text');
+            const insightIcon = document.getElementById('insight-icon');
+            const modal = document.getElementById('success-modal');
+
+            let totalItems = draggables.length;
+            let correctItems = 0;
+
+            // Database Pesan dari Knowledge Base
+            const insightMessages = {
+                'num-5': {
+                    correct: "<strong>Tepat!</strong> Angka 5 adalah Bilangan Asli. Karena ia Asli, ia otomatis tertelan di dalam perut Cacah, Bulat, Rasional, dan Real.",
+                    parent: "5 memang bagian dari himpunan itu, tapi ia memiliki himpunan paling spesifik (paling dalam) yaitu Bilangan Asli. Tarik lebih dalam!"
+                },
+                'num-0': {
+                    correct: "<strong>Tepat!</strong> Angka 0 menemukan 'ketiadaan' pertamanya di Himpunan Cacah. Ia bukan bilangan Asli karena kita tidak mulai menghitung dari nol.",
+                    parent: "0 memang ada di dalam himpunan tersebut, tapi himpunan terkecil (terdalam) yang memuatnya pertama kali adalah Cacah."
+                },
+                'num-min3': {
+                    correct: "<strong>Tepat!</strong> -3 adalah Bilangan Bulat Negatif. Konsep minus pertama kali diwadahi oleh himpunan ini.",
+                    parent: "-3 bisa disebut pecahan -3/1 (Rasional), tapi ia adalah angka utuh, jadi rumah utamanya adalah Bulat."
+                },
+                'num-half': {
+                    correct: "<strong>Tepat!</strong> Pecahan murni seperti 1/2 tidak utuh, sehingga ia berhenti di lobi Bilangan Rasional dan tak bisa masuk lebih dalam.",
+                    parent: "" 
+                },
+                'num-pi': {
+                    correct: "<strong>Sempurna!</strong> \\(\\pi\\) menolak menjadi pecahan. Desimalnya tak berpola, menjadikannya penghuni eksklusif Himpunan Irasional.",
+                    parent: ""
+                },
+                'num-sqrt2': {
+                    correct: "<strong>Benar!</strong> Akar yang bukan dari angka kuadrat sempurna (seperti 2) desimalnya tak berujung. Itu adalah Irasional sejati.",
+                    parent: ""
+                },
+                'num-sqrt4': {
+                    correct: "<strong>Hebat! Kamu selamat dari jebakan!</strong> Walau punya bentuk akar, \\(\\sqrt{4}\\) dieksekusi menjadi 2. Angka 2 adalah Bilangan Asli murni!",
+                    parent: "Jangan terkecoh simbol akar! Evaluasi nilainya dulu. Berapa nilai dari \\(\\sqrt{4}\\)? Angka utuh positif masuk kemana?"
+                },
+                'num-desimal': {
+                    correct: "<strong>Analisis Bagus!</strong> Walau desimalnya tak terbatas (0.333...), ia <strong>berpola konstan</strong>, sehingga bisa diubah jadi pecahan (1/3). Ia adalah Rasional!",
+                    parent: ""
+                }
+            };
+
+            // Hierarchy Map: Untuk mendeteksi jika user meletakkan angka di 'parent' yang valid tapi kurang spesifik
+            const hierarchyMap = {
+                'zone-asli': ['zone-asli', 'zone-cacah', 'zone-bulat', 'zone-rasional', 'zone-real'],
+                'zone-cacah': ['zone-cacah', 'zone-bulat', 'zone-rasional', 'zone-real'],
+                'zone-bulat': ['zone-bulat', 'zone-rasional', 'zone-real'],
+                'zone-rasional': ['zone-rasional', 'zone-real'],
+                'zone-irasional': ['zone-irasional', 'zone-real']
+            };
+
+            // Setup Draggable Events
+            draggables.forEach(item => {
+                item.addEventListener('dragstart', (e) => {
+                    item.classList.add('dragged');
+                    e.dataTransfer.setData('text/plain', item.id);
+                    setInsightState('neutral', '<em>Menganalisa pergerakan data...</em>', 'ph-magnifying-glass');
+                });
+
+                item.addEventListener('dragend', () => {
+                    item.classList.remove('dragged');
+                });
+            });
+
+            // Setup Drop Zone Events
+            zones.forEach(zone => {
+                zone.addEventListener('dragover', (e) => {
+                    e.preventDefault(); 
+                    e.stopPropagation(); // Mencegah nested zone trigger bersamaan
+                    zones.forEach(z => z.classList.remove('drag-over'));
+                    zone.classList.add('drag-over');
+                });
+
+                zone.addEventListener('dragleave', (e) => {
+                    zone.classList.remove('drag-over');
+                });
+
+                zone.addEventListener('drop', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    zone.classList.remove('drag-over');
+
+                    const id = e.dataTransfer.getData('text/plain');
+                    const draggedElement = document.getElementById(id);
+                    
+                    if (!draggedElement) return;
+
+                    const correctTargetId = draggedElement.getAttribute('data-target');
+                    const droppedZoneId = zone.id;
+
+                    // Logika Validasi
+                    if (droppedZoneId === correctTargetId) {
+                        handleSuccess(draggedElement, zone, id);
+                    } else {
+                        const allowedParents = hierarchyMap[correctTargetId];
+                        
+                        if (allowedParents && allowedParents.includes(droppedZoneId)) {
+                            // Masuk akal, tapi kurang dalam (e.g. Asli ditaruh di Rasional)
+                            handleHint(draggedElement, "parent", id);
+                        } else if (droppedZoneId === 'zone-irasional' && correctTargetId !== 'zone-irasional') {
+                            // Salah total ke irasional (biasanya jebakan akar)
+                            if (draggedElement.getAttribute('data-is-trick') === 'true') {
+                                handleHint(draggedElement, "trick", id);
+                            } else {
+                                handleHint(draggedElement, "wrong-ira", id);
+                            }
+                        } else {
+                            // Salah total lainnya
+                            handleHint(draggedElement, "wrong", id);
+                        }
+                    }
+                });
+            });
+
+            // UI State Manager untuk Insight Box
+            function setInsightState(state, message, iconClass) {
+                insightText.innerHTML = message;
+                insightIcon.className = `ph-fill ${iconClass} insight-icon`;
+                
+                // Clear existing state classes
+                insightBox.className = 'insight-box';
+
+                if (state === 'success') {
+                    insightBox.classList.add('success');
+                } else if (state === 'warning') {
+                    insightBox.classList.add('warning');
+                } else if (state === 'error') {
+                    insightBox.classList.add('error');
+                }
+            }
+
+            function handleSuccess(element, zone, id) {
+                element.setAttribute('draggable', 'false'); 
+                
+                // Bersihkan styling trick/jebakan
+                element.classList.remove('item-trick');
+                const trickIndicator = element.querySelector('.trick-indicator');
+                if (trickIndicator) trickIndicator.remove();
+                
+                // Pindahkan node ke dalam container drop zone
+                let targetContainer = zone.querySelector('.dropped-items');
+                if(!targetContainer) targetContainer = zone; 
+                
+                targetContainer.appendChild(element);
+                element.classList.add('pop-in');
+
+                setInsightState('success', insightMessages[id].correct, 'ph-check-circle');
+
+                correctItems++;
+                checkCompletion();
+            }
+
+            function handleHint(element, type, id) {
+                element.classList.add('shake');
+                setTimeout(() => element.classList.remove('shake'), 300);
+
+                if (type === "parent") {
+                    setInsightState('warning', insightMessages[id].parent, 'ph-warning');
+                } else if (type === "trick") {
+                    setInsightState('error', "Hati-hati! <strong>Selesaikan dulu operasinya!</strong> Berapa akar dari 4? Apakah nilainya acak tak terhingga?", 'ph-x-circle');
+                } else if (type === "wrong-ira") {
+                    setInsightState('error', "Error! Bilangan tersebut bukan merupakan desimal acak yang tak terhingga. Ia memiliki rasio pasti (Rasional)!", 'ph-x-circle');
+                } else {
+                    setInsightState('error', "Kesalahan Himpunan. Angka tersebut tidak memenuhi syarat definisi di kotak ini.", 'ph-x-circle');
+                }
+            }
+
+            function checkCompletion() {
+                if(correctItems === totalItems) {
+                    setTimeout(() => {
+                        modal.style.display = 'flex';
+                        setInsightState('success', "<strong>Simulasi Selesai!</strong> Semesta bilangan berhasil dipetakan dengan rasionalitas tinggi.", 'ph-star');
+                    }, 500);
+                }
+            }
+
+            // Mencegah trigger parent (zone-real) jika di drop tapi meleset dari child
+            document.getElementById('zone-real').addEventListener('dragover', (e) => {
+                 e.preventDefault();
+            });
+            
+            // Expose function for modal
+            window.closeModal = function() {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

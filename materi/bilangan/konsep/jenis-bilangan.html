@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konsep Jenis Bilangan - Nalar Etam</title>
+    
+    <!-- Font & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- Tailwind CSS (Konsisten dengan index.html) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { 
+            theme: { 
+                extend: { 
+                    fontFamily: { sans: ['Inter', 'sans-serif'] }, 
+                    colors: { 
+                        brand: { 50: '#eff6ff', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8' } 
+                    } 
+                } 
+            } 
+        }
+    </script>
+
+    <!-- MathJax -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body class="font-sans text-slate-800 bg-slate-50 antialiased selection:bg-brand-500 selection:text-white flex flex-col min-h-screen">
+
+    <!-- Navbar Component -->
+    <div id="navbar-container"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 w-full flex flex-col md:flex-row gap-8 pt-24 pb-12 flex-grow">
+        
+        <!-- SIDEBAR NAVIGASI (Hybrid model ala Khan Academy) -->
+        <aside class="hidden md:block w-64 shrink-0">
+            <div class="sticky top-28">
+                <a href="../index.html" class="flex items-center gap-2 text-slate-500 hover:text-brand-600 mb-6 font-medium transition-colors">
+                    <i class="ph-bold ph-arrow-left"></i> Bab Bilangan
+                </a>
+                <h3 class="font-bold text-slate-900 mb-4 uppercase tracking-wider text-sm">Daftar Konsep</h3>
+                <ul class="space-y-2">
+                    <li>
+                        <a href="#" class="block px-4 py-2 bg-brand-50 text-brand-600 rounded-lg font-medium border-l-4 border-brand-600">
+                            Jenis Bilangan
+                        </a>
+                    </li>
+                    <li>
+                        <a href="operasi-bilangan.html" class="block px-4 py-2 text-slate-600 hover:bg-slate-100 rounded-lg transition-colors border-l-4 border-transparent hover:border-slate-300">
+                            Operasi Bilangan
+                        </a>
+                    </li>
+                    <li>
+                        <a href="eksponen.html" class="block px-4 py-2 text-slate-600 hover:bg-slate-100 rounded-lg transition-colors border-l-4 border-transparent hover:border-slate-300">
+                            Eksponen
+                        </a>
+                    </li>
+                    <li>
+                        <a href="bentuk-akar.html" class="block px-4 py-2 text-slate-600 hover:bg-slate-100 rounded-lg transition-colors border-l-4 border-transparent hover:border-slate-300">
+                            Bentuk Akar
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- KONTEN UTAMA -->
+        <main class="flex-1 min-w-0">
+            <!-- Breadcrumb -->
+            <nav class="text-sm text-slate-500 mb-6 flex items-center gap-2">
+                <a href="../../../index.html" class="hover:text-brand-600"><i class="ph-fill ph-house"></i></a>
+                <i class="ph-bold ph-caret-right text-xs"></i>
+                <a href="../index.html" class="hover:text-brand-600">Materi Bilangan</a>
+                <i class="ph-bold ph-caret-right text-xs"></i>
+                <span class="text-brand-600 font-semibold">Jenis Bilangan</span>
+            </nav>
+
+            <!-- 1. Hero -->
+            <header class="bg-gradient-to-br from-brand-600 to-blue-800 text-white p-8 md:p-12 rounded-3xl shadow-lg mb-12">
+                <h1 class="text-3xl md:text-5xl font-extrabold mb-4 leading-tight">Sistem Jenis Bilangan</h1>
+                <p class="text-brand-50 text-lg max-w-2xl">Menjelajahi semesta angka: Dari menghitung benda fisik dengan jari hingga menemukan irasionalitas tak berujung di alam semesta.</p>
+            </header>
+
+            <!-- 2. Intuisi Konsep & Peta Konsep -->
+            <section class="mb-16">
+                <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
+                    <i class="ph-fill ph-map-trifold text-brand-500 text-3xl"></i> Peta Semesta Angka (Hierarki)
+                </h2>
+                <div class="prose max-w-none text-slate-600 mb-8">
+                    <p>Bayangkan angka sebagai kotak Matryoshka (boneka Rusia). Kotak terkecil ada di dalam kotak yang lebih besar. <strong>Semua bilangan Asli pasti Real, tapi bilangan Real belum tentu Asli.</strong></p>
+                </div>
+                
+                <div class="bg-slate-100 p-4 md:p-8 rounded-3xl">
+                    <!-- Matryoshka Visualization -->
+                    <div class="border-2 border-dashed border-slate-400 bg-white p-6 rounded-2xl text-center w-full">
+                        <span class="block font-bold text-slate-700 mb-4 text-lg">Bilangan Real (\(\mathbb{R}\)) - Semesta Garis Bilangan</span>
+                        
+                        <div class="flex flex-col md:flex-row gap-4 justify-center mt-4">
+                            <!-- Irasional -->
+                            <div class="flex-1 min-w-[200px] border-2 border-dashed border-red-400 bg-red-50 p-4 rounded-xl text-center hover:bg-red-100 transition">
+                                <span class="block font-bold text-red-600 mb-2">Irasional</span>
+                                <p class="text-xs text-red-800">Pecahan mustahil, desimal acak abadi.<br>Contoh: \(\pi\), \(\sqrt{2}\)</p>
+                            </div>
+
+                            <!-- Rasional & Nested -->
+                            <div class="flex-[2] min-w-[250px] border-2 border-dashed border-brand-400 bg-brand-50 p-4 rounded-xl text-center hover:bg-brand-100 transition">
+                                <span class="block font-bold text-brand-600 mb-2">Rasional (\(\mathbb{Q}\))</span>
+                                <p class="text-xs text-brand-800 mb-4">Bisa dibentuk pecahan \(\frac{a}{b}\). Contoh: \(0.5\), \(\frac{1}{3}\)</p>
+                                
+                                <div class="border-2 border-dashed border-emerald-400 bg-white p-4 rounded-xl mx-auto w-11/12 hover:bg-emerald-50 transition">
+                                    <span class="block font-bold text-emerald-600 mb-2">Bulat (\(\mathbb{Z}\))</span>
+                                    <p class="text-xs text-emerald-800 mb-4">Utuh + lawan negatif. Contoh: \(-5, 0, 5\)</p>
+
+                                    <div class="border-2 border-dashed border-amber-400 bg-amber-50 p-4 rounded-xl mx-auto w-11/12 hover:bg-amber-100 transition">
+                                        <span class="block font-bold text-amber-600 mb-2">Cacah (\(\mathbb{W}\))</span>
+                                        <p class="text-xs text-amber-800 mb-4">Mulai 0 (Ketiadaan). Contoh: \(0, 1, 2\)</p>
+
+                                        <div class="border-2 border-dashed border-purple-400 bg-white p-4 rounded-xl mx-auto w-11/12 hover:bg-purple-50 transition">
+                                            <span class="block font-bold text-purple-600 mb-2">Asli (\(\mathbb{N}\))</span>
+                                            <p class="text-xs text-purple-800">Mulai 1 (Alamiah).<br>Contoh: \(1, 2, 3\)</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. Materi Inti -->
+            <section class="mb-16">
+                <h2 class="text-2xl font-bold text-slate-900 mb-8 flex items-center gap-3">
+                    <i class="ph-fill ph-book-open-text text-brand-500 text-3xl"></i> Membedah Jenis Bilangan
+                </h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                        <h3 class="text-xl font-bold text-brand-600 mb-2 flex justify-between">1. Bilangan Asli (\(\mathbb{N}\)) <span>👋</span></h3>
+                        <p class="text-slate-600 mb-2">Himpunan bilangan bulat positif yang dimulai dari 1. <strong>Contoh:</strong> 1, 2, 100.</p>
+                        <div class="mt-4 bg-brand-50 p-3 rounded-xl border border-brand-100 text-sm">
+                            <strong>Intuisi:</strong> Angka yang kamu gunakan sejak balita untuk menghitung jari atau benda. Kamu tak bisa menghitung "minus satu" jari.
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                        <h3 class="text-xl font-bold text-brand-600 mb-2 flex justify-between">2. Bilangan Cacah (\(\mathbb{W}\)) <span>🧺</span></h3>
+                        <p class="text-slate-600 mb-2">Semua bilangan asli, ditambah angka 0. <strong>Contoh:</strong> 0, 1, 2, 3.</p>
+                        <div class="mt-4 bg-brand-50 p-3 rounded-xl border border-brand-100 text-sm">
+                            <strong>Intuisi:</strong> Sama seperti hitungan asli, tapi ada penemuan besar: "Ketiadaan". Keranjang buah bisa berisi 3 apel, atau bisa kosong (0).
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                        <h3 class="text-xl font-bold text-brand-600 mb-2 flex justify-between">3. Bilangan Bulat (\(\mathbb{Z}\)) <span>🌡️</span></h3>
+                        <p class="text-slate-600 mb-2">Cacah dan lawan negatifnya. Angka utuh tanpa koma. <strong>Contoh:</strong> -10, 0, 5.</p>
+                        <div class="mt-4 bg-brand-50 p-3 rounded-xl border border-brand-100 text-sm">
+                            <strong>Intuisi:</strong> Konsep "Utang" dan "Harta", atau suhu di bawah titik beku air pada termometer.
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                        <h3 class="text-xl font-bold text-brand-600 mb-2 flex justify-between">4. Bilangan Rasional (\(\mathbb{Q}\)) <span>🍕</span></h3>
+                        <p class="text-slate-600 mb-2">Bisa dinyatakan dalam pecahan \(\frac{a}{b}\). <strong>Contoh:</strong> \(\frac{1}{2}\), \(0.33...\)</p>
+                        <div class="mt-4 bg-brand-50 p-3 rounded-xl border border-brand-100 text-sm">
+                            <strong>Intuisi:</strong> Berasal dari "Rasio". Membagi pizza utuh secara adil. Desimalnya pasti berhenti atau berulang teratur.
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition md:col-span-2">
+                        <h3 class="text-xl font-bold text-brand-600 mb-2 flex justify-between">5. Bilangan Irasional <span>🌌</span></h3>
+                        <p class="text-slate-600 mb-2">Tidak dapat diubah jadi pecahan. Desimal acak tak berujung. <strong>Contoh:</strong> \(\pi\), \(\sqrt{2}\).</p>
+                        <div class="mt-4 bg-brand-50 p-3 rounded-xl border border-brand-100 text-sm">
+                            <strong>Intuisi:</strong> Angka pemberontak alam semesta. Tidak ada rasio manusia yang bisa mengukur diagonal sisi \(\sqrt{2}\) dengan sempurna.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. Miskonsepsi Lab -->
+            <section class="mb-16">
+                <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
+                    <i class="ph-fill ph-flask text-rose-500 text-3xl"></i> Miskonsepsi Lab
+                </h2>
+                <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden divide-y divide-slate-100">
+                    
+                    <div class="p-6 md:p-8 flex flex-col md:flex-row gap-6">
+                        <div class="shrink-0 flex items-center justify-center w-12 h-12 bg-rose-100 text-rose-600 rounded-full">
+                            <i class="ph-bold ph-x text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-slate-900 mb-2">"\(\pi\) itu Rasional karena nilainya \(\frac{22}{7}\)"</h4>
+                            <p class="text-slate-600 mb-4">Banyak yang salah paham karena diajarkan rumus luas lingkaran dengan \(\frac{22}{7}\) sewaktu SD.</p>
+                            <div class="flex gap-2 items-start bg-emerald-50 p-4 rounded-xl text-emerald-800">
+                                <i class="ph-fill ph-check-circle text-emerald-500 text-xl shrink-0 mt-0.5"></i>
+                                <p class="text-sm font-medium"><strong>Faktanya:</strong> \(\frac{22}{7}\) HANYA nilai estimasi untuk mempermudah. Nilai \(\pi\) asli adalah irasional murni yang digitnya tak berpola dan tak berujung.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-6 md:p-8 flex flex-col md:flex-row gap-6">
+                        <div class="shrink-0 flex items-center justify-center w-12 h-12 bg-rose-100 text-rose-600 rounded-full">
+                            <i class="ph-bold ph-x text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-slate-900 mb-2">"Semua angka dalam akar (\(\sqrt{x}\)) pasti Irasional"</h4>
+                            <p class="text-slate-600 mb-4">Begitu melihat simbol akar \(\sqrt{4}\), otak langsung memvonisnya sebagai Irasional.</p>
+                            <div class="flex gap-2 items-start bg-emerald-50 p-4 rounded-xl text-emerald-800">
+                                <i class="ph-fill ph-check-circle text-emerald-500 text-xl shrink-0 mt-0.5"></i>
+                                <p class="text-sm font-medium"><strong>Faktanya:</strong> Selesaikan operasinya dulu! \(\sqrt{4} = 2\). Angka 2 adalah Asli (Rasional). Akar hanya irasional jika bukan kuadrat sempurna (seperti \(\sqrt{5}\)).</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- 5. Simulasi Interaktif -->
+            <section class="mb-16">
+                <div class="bg-slate-900 rounded-3xl p-4 md:p-8 text-center relative shadow-xl">
+                    <!-- Background Accent -->
+                    <div class="absolute top-0 right-0 -mt-8 -mr-8 w-48 h-48 bg-brand-500 rounded-full opacity-20 blur-3xl pointer-events-none"></div>
+                    <div class="absolute bottom-0 left-0 -mb-8 -ml-8 w-48 h-48 bg-purple-500 rounded-full opacity-20 blur-3xl pointer-events-none"></div>
+                    
+                    <h2 class="text-3xl font-extrabold text-white mb-4 relative z-10 pt-4">Simulasi: Mesin Matryoshka</h2>
+                    <p class="text-slate-300 mb-8 max-w-2xl mx-auto relative z-10">Buktikan pemahaman hierarki bilanganmu! Tarik angka ke dalam kotak himpunan yang paling tepat dan lihat bagaimana semesta angka berinteraksi.</p>
+                    
+                    <!-- Iframe Embed -->
+                    <div class="relative z-10 w-full rounded-2xl overflow-hidden bg-slate-50 shadow-2xl border border-slate-700">
+                        <iframe 
+                            src="../simulasi/mesin-klasifikasi-bilangan.html" 
+                            class="w-full h-[700px] md:h-[800px] border-0"
+                            title="Simulasi Klasifikasi Bilangan">
+                        </iframe>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 6. Smart Insight TKA -->
+            <section class="mb-16">
+                <div class="bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200 p-8 rounded-3xl relative overflow-hidden">
+                    <i class="ph-duotone ph-lightbulb text-6xl text-amber-500 opacity-20 absolute -right-2 -bottom-2 transform -rotate-12"></i>
+                    <h3 class="text-xl font-bold text-amber-800 mb-4 flex items-center gap-2">
+                        <i class="ph-fill ph-lightbulb text-amber-500"></i> Smart Insight TKA (UTBK)
+                    </h3>
+                    <p class="text-amber-900 mb-4"><strong>Jebakan Kepadatan (Density Trap):</strong></p>
+                    <p class="text-amber-800 text-sm leading-relaxed mb-4">Dalam UTBK, sering muncul premis "Apakah ada bilangan bulat antara 1 dan 2?" (Jawab: Tidak). Namun, ketika ditanya "Berapa banyak bilangan rasional antara 1.1 dan 1.2?" Banyak yang menjawab "hanya 1.11 hingga 1.19".</p>
+                    <div class="bg-white/60 p-4 rounded-xl text-sm text-amber-900 border border-amber-200">
+                        <strong>Nalar:</strong> Ruang antar pecahan adalah semesta yang padat tak terhingga! Ada 1.115, 1.1118, dan seterusnya. Tidak ada ruang hampa di garis bilangan Real!
+                    </div>
+                </div>
+            </section>
+
+            <!-- 7. Contoh Soal Bertingkat -->
+            <section class="mb-16">
+                <h2 class="text-2xl font-bold text-slate-900 mb-8 flex items-center gap-3">
+                    <i class="ph-fill ph-exam text-brand-500 text-3xl"></i> Latihan Analitik Bertingkat
+                </h2>
+                
+                <div class="space-y-4">
+                    <!-- Soal 1 -->
+                    <div class="border border-slate-200 rounded-2xl bg-white overflow-hidden shadow-sm">
+                        <button onclick="toggleSoal('soal1', this)" class="w-full px-6 py-4 flex items-center justify-between bg-slate-50 hover:bg-slate-100 transition-colors text-left focus:outline-none">
+                            <span class="font-bold text-slate-800">Soal 1: Posisi Angka Nol</span>
+                            <div class="flex items-center gap-3">
+                                <span class="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-bold rounded-full">Knowing</span>
+                                <i class="ph-bold ph-caret-down text-slate-400 transition-transform duration-200"></i>
+                            </div>
+                        </button>
+                        <div id="soal1" class="hidden px-6 py-4 border-t border-slate-100">
+                            <p class="text-slate-700 mb-4">Di manakah posisi "Nol (0)" dalam klasifikasi sistem bilangan?</p>
+                            <ol class="list-[upper-alpha] pl-6 space-y-2 text-slate-600 mb-6 font-medium">
+                                <li>Nol adalah bilangan Irasional.</li>
+                                <li>Nol adalah bilangan Asli terkecil.</li>
+                                <li>Nol adalah bilangan bulat positif.</li>
+                                <li>Nol adalah bilangan Rasional.</li>
+                            </ol>
+                            <div class="bg-brand-50 p-5 rounded-xl border-l-4 border-brand-500 text-sm text-slate-700">
+                                <span class="block font-bold text-brand-700 mb-2">Kunci: D</span>
+                                <strong>Pembahasan Nalar:</strong> 0 dapat ditulis sebagai \(\frac{0}{1}\) (rasio antar integer dengan penyebut bukan nol), sehingga ia masuk kelompok Rasional. Ia bukan bilangan asli (mulai dari 1), dan bukan pula bilangan positif atau negatif (0 itu netral).
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Soal 2 -->
+                    <div class="border border-slate-200 rounded-2xl bg-white overflow-hidden shadow-sm">
+                        <button onclick="toggleSoal('soal2', this)" class="w-full px-6 py-4 flex items-center justify-between bg-slate-50 hover:bg-slate-100 transition-colors text-left focus:outline-none">
+                            <span class="font-bold text-slate-800">Soal 2: Kasus Suhu Lab</span>
+                            <div class="flex items-center gap-3">
+                                <span class="px-3 py-1 bg-amber-100 text-amber-700 text-xs font-bold rounded-full">Applying</span>
+                                <i class="ph-bold ph-caret-down text-slate-400 transition-transform duration-200"></i>
+                            </div>
+                        </button>
+                        <div id="soal2" class="hidden px-6 py-4 border-t border-slate-100">
+                            <p class="text-slate-700 mb-4">Jika suhu ruangan pendingin laboratorium mencapai nilai minus (-15°C), dalam himpunan bilangan mana nilai ini PERTAMA KALI ditemukan (himpunan paling spesifik/terkecil yang memuatnya)?</p>
+                            <ol class="list-[upper-alpha] pl-6 space-y-2 text-slate-600 mb-6 font-medium">
+                                <li>Bilangan Cacah</li>
+                                <li>Bilangan Bulat</li>
+                                <li>Bilangan Irasional</li>
+                                <li>Bilangan Real</li>
+                            </ol>
+                            <div class="bg-brand-50 p-5 rounded-xl border-l-4 border-brand-500 text-sm text-slate-700">
+                                <span class="block font-bold text-brand-700 mb-2">Kunci: B</span>
+                                <strong>Pembahasan Nalar:</strong> Bilangan Cacah terhenti pada 0. Konsep minus pertama kali diakomodir oleh himpunan Bilangan Bulat (Integers) untuk mewakili hutang, mundur, atau suhu di bawah titik beku.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Soal 3 -->
+                    <div class="border border-slate-200 rounded-2xl bg-white overflow-hidden shadow-sm">
+                        <button onclick="toggleSoal('soal3', this)" class="w-full px-6 py-4 flex items-center justify-between bg-slate-50 hover:bg-slate-100 transition-colors text-left focus:outline-none">
+                            <span class="font-bold text-slate-800">Soal 3: Logika Desimal Berulang</span>
+                            <div class="flex items-center gap-3">
+                                <span class="px-3 py-1 bg-rose-100 text-rose-700 text-xs font-bold rounded-full">Reasoning</span>
+                                <i class="ph-bold ph-caret-down text-slate-400 transition-transform duration-200"></i>
+                            </div>
+                        </button>
+                        <div id="soal3" class="hidden px-6 py-4 border-t border-slate-100">
+                            <p class="text-slate-700 mb-4">Sebuah mesin logika menyatakan bahwa: "Karena \(0.999...\) memiliki digit yang tak terhingga dan tak pernah berakhir seperti \(\pi\), maka ia digolongkan sebagai bilangan Irasional". Evaluasi kebenaran pernyataan mesin tersebut!</p>
+                            <div class="bg-brand-50 p-5 rounded-xl border-l-4 border-brand-500 text-sm text-slate-700">
+                                <span class="block font-bold text-brand-700 mb-2">Pembahasan Analitik (HOTS):</span>
+                                Logika mesin tersebut <strong class="text-rose-600">CACAT</strong>. Syarat Irasional bukan hanya "tak berhingga", tapi "tak berhingga DAN tidak berpola". <br><br>
+                                Angka \(0.999...\) berulang secara konstan. Secara aljabar, jika \(x = 0.999...\), maka \(10x = 9.999...\). Kurangi keduanya, didapat \(9x = 9 \rightarrow x = 1\). Angka 1 adalah rasio \(\frac{1}{1}\). Jadi \(0.999...\) adalah <strong>Bilangan Rasional</strong> (bahkan Bilangan Asli).
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Navigasi Footer -->
+            <div class="flex flex-col sm:flex-row justify-between items-center mt-12 pt-8 border-t border-slate-200 gap-4">
+                <a href="#" class="px-6 py-3 rounded-full border border-slate-300 text-slate-600 font-bold hover:bg-slate-100 transition-colors w-full sm:w-auto text-center opacity-50 cursor-not-allowed">
+                    <i class="ph-bold ph-arrow-left mr-2"></i> Bab Sebelumnya
+                </a>
+                <a href="operasi-bilangan.html" class="px-6 py-3 rounded-full bg-slate-900 text-white font-bold hover:bg-slate-800 transition-colors w-full sm:w-auto text-center shadow-lg shadow-slate-900/20">
+                    Operasi Bilangan <i class="ph-bold ph-arrow-right ml-2"></i>
+                </a>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Footer Component -->
+    <div id="footer-container" class="mt-auto"></div>
+
+    <!-- Script Components (Asumsi dari index.html) -->
+    <script src="../../../components/navbar.js"></script>
+    <script src="../../../components/footer.js"></script>
+
+    <!-- JS Khusus Halaman Ini -->
+    <script>
+        function toggleSoal(id, btnElement) {
+            const content = document.getElementById(id);
+            const icon = btnElement.querySelector('i.ph-caret-down');
+            
+            // Toggle visibility using Tailwind classes
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.classList.add('rotate-180');
+            } else {
+                content.classList.add('hidden');
+                icon.classList.remove('rotate-180');
+            }
+        }
+    </script>
+</body>
+</html>

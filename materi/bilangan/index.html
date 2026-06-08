@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modul Bilangan - Nalar Etam</title>
+    
+    <!-- Font & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- CSS Global Website Nalar Etam -->
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/components.css">
+    <link rel="stylesheet" href="../../assets/css/materi.css">
+
+    <!-- CSS Spesifik Halaman (Vanilla) -->
+    <style>
+        :root {
+            --brand-50: #eff6ff;
+            --brand-100: #dbeafe;
+            --brand-500: #3b82f6;
+            --brand-600: #2563eb;
+            --brand-700: #1d4ed8;
+            --slate-50: #f8fafc;
+            --slate-100: #f1f5f9;
+            --slate-200: #e2e8f0;
+            --slate-500: #64748b;
+            --slate-600: #475569;
+            --slate-800: #1e293b;
+            --slate-900: #0f172a;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--slate-50);
+            color: var(--slate-800);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        a { text-decoration: none; }
+
+        main { flex-grow: 1; padding-top: 80px; }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 5rem 1.5rem 4rem;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--slate-900);
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.025em;
+        }
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--slate-600);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Peta Konsep Section */
+        .concept-map-section {
+            padding: 5rem 1.5rem;
+            background-color: var(--white);
+            border-top: 1px solid var(--slate-200);
+            border-bottom: 1px solid var(--slate-200);
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--slate-900);
+            margin-bottom: 3rem;
+        }
+
+        .map-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .map-node-main {
+            background-color: var(--brand-50);
+            border: 2px solid var(--brand-500);
+            color: var(--brand-700);
+            padding: 1rem 2.5rem;
+            border-radius: 9999px;
+            font-weight: 800;
+            font-size: 1.25rem;
+            z-index: 2;
+            box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.1);
+        }
+        .map-line-vertical {
+            width: 2px;
+            height: 2.5rem;
+            background-color: var(--brand-500);
+        }
+        .map-line-horizontal {
+            width: 100%;
+            max-width: 800px;
+            height: 2px;
+            background-color: var(--brand-500);
+            position: relative;
+        }
+        .map-branches {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 800px;
+            position: relative;
+            padding-top: 2rem;
+        }
+        /* Branch connecting lines */
+        .map-branches::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background-color: var(--brand-500);
+        }
+        .branch-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            position: relative;
+        }
+        .branch-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 2px;
+            height: 2rem;
+            background-color: var(--brand-500);
+            transform: translateX(-50%);
+        }
+        .map-node-sub {
+            margin-top: 2rem;
+            background-color: var(--white);
+            border: 2px solid var(--slate-200);
+            color: var(--slate-600);
+            padding: 0.75rem 1.25rem;
+            border-radius: 1rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+        .map-node-sub:hover {
+            border-color: var(--brand-500);
+            color: var(--brand-600);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Navigasi Materi Section */
+        .nav-section {
+            padding: 5rem 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .nav-card {
+            background-color: var(--white);
+            border: 1px solid var(--slate-200);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+        }
+        .nav-card:hover {
+            border-color: var(--brand-500);
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
+            transform: translateY(-5px);
+        }
+        
+        .nav-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 3.5rem;
+            height: 3.5rem;
+            background-color: var(--brand-50);
+            color: var(--brand-600);
+            border-radius: 1rem;
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .nav-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--slate-900);
+            margin-bottom: 0.75rem;
+        }
+        
+        .nav-card p {
+            color: var(--slate-600);
+            margin-bottom: 2rem;
+            flex-grow: 1;
+            font-size: 0.95rem;
+        }
+        
+        .btn-pelajari {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background-color: var(--slate-50);
+            color: var(--brand-600);
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.75rem;
+            transition: all 0.2s ease;
+            width: 100%;
+            border: 1px solid var(--slate-200);
+        }
+        
+        .nav-card:hover .btn-pelajari {
+            background-color: var(--brand-600);
+            color: var(--white);
+            border-color: var(--brand-600);
+        }
+
+        /* Responsiveness */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.25rem; }
+            
+            /* Peta Konsep jadi vertikal di mobile */
+            .map-branches {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+                padding-top: 0;
+            }
+            .map-branches::before { display: none; }
+            .branch-item::before { display: none; }
+            .map-node-sub {
+                margin-top: 0;
+                width: 250px;
+            }
+            .branch-item { margin-bottom: 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar Component -->
+    <div id="navbar-container"></div>
+
+    <main>
+        <!-- 1. HERO SECTION -->
+        <section class="hero">
+            <h1>Bab 1: Bilangan</h1>
+            <p>Pahami fondasi dari seluruh matematika. Menjelajah dari konsep ketiadaan hingga angka-angka yang membentuk pola alam semesta, tanpa hafalan rumus.</p>
+        </section>
+
+        <!-- 2. PETA KONSEP VISUAL -->
+        <section class="concept-map-section">
+            <h2 class="section-title">Roadmap Pembelajaran</h2>
+            <div class="map-container">
+                <div class="map-node-main">Modul Bilangan</div>
+                <div class="map-line-vertical"></div>
+                <div class="map-branches">
+                    <div class="branch-item"><div class="map-node-sub">1. Jenis Bilangan</div></div>
+                    <div class="branch-item"><div class="map-node-sub">2. Garis Bilangan</div></div>
+                    <div class="branch-item"><div class="map-node-sub">3. Operasi Bilangan</div></div>
+                    <div class="branch-item"><div class="map-node-sub">4. Eksponen</div></div>
+                    <div class="branch-item"><div class="map-node-sub">5. Bentuk Akar</div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. NAVIGASI MATERI -->
+        <section class="nav-section">
+            <div class="nav-grid">
+                
+                <!-- Card 1 -->
+                <a href="konsep/jenis-bilangan.html" class="nav-card">
+                    <div class="nav-icon"><i class="ph-bold ph-list-numbers"></i></div>
+                    <h3>1. Jenis Bilangan</h3>
+                    <p>Mengenal hierarki angka mulai dari bilangan Asli, Cacah, Bulat, Rasional, hingga pemberontak alam semesta yaitu Irasional.</p>
+                    <div class="btn-pelajari">Pelajari Konsep <i class="ph-bold ph-arrow-right"></i></div>
+                </a>
+
+                <!-- Card 2 -->
+                <a href="konsep/garis-bilangan.html" class="nav-card">
+                    <div class="nav-icon"><i class="ph-bold ph-ruler"></i></div>
+                    <h3>2. Garis Bilangan</h3>
+                    <p>Memvisualisasikan posisi mutlak, kepadatan yang tak terhingga, dan relasi setiap angka di atas sebuah penggaris satu dimensi.</p>
+                    <div class="btn-pelajari">Pelajari Konsep <i class="ph-bold ph-arrow-right"></i></div>
+                </a>
+
+                <!-- Card 3 -->
+                <a href="konsep/operasi-bilangan.html" class="nav-card">
+                    <div class="nav-icon"><i class="ph-bold ph-calculator"></i></div>
+                    <h3>3. Operasi Bilangan</h3>
+                    <p>Membedah nalar di balik penjumlahan, pengurangan, perkalian, dan pembagian. Mengapa operasi angka bekerja sebagaimana adanya.</p>
+                    <div class="btn-pelajari">Pelajari Konsep <i class="ph-bold ph-arrow-right"></i></div>
+                </a>
+
+                <!-- Card 4 -->
+                <a href="konsep/eksponen.html" class="nav-card">
+                    <div class="nav-icon"><i class="ph-bold ph-trend-up"></i></div>
+                    <h3>4. Eksponen (Pangkat)</h3>
+                    <p>Mengeksplorasi hukum pertumbuhan dan penyusutan angka yang sangat cepat, serta aplikasinya secara nyata.</p>
+                    <div class="btn-pelajari">Pelajari Konsep <i class="ph-bold ph-arrow-right"></i></div>
+                </a>
+
+                <!-- Card 5 -->
+                <a href="konsep/bentuk-akar.html" class="nav-card">
+                    <div class="nav-icon"><i class="ph-bold ph-radical"></i></div>
+                    <h3>5. Bentuk Akar</h3>
+                    <p>Mengurai pangkat berbentuk pecahan, merasionalkan penyebut, dan mengendalikan nilai irasional yang rumit.</p>
+                    <div class="btn-pelajari">Pelajari Konsep <i class="ph-bold ph-arrow-right"></i></div>
+                </a>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Component -->
+    <div id="footer-container"></div>
+
+    <!-- Scripts -->
+    <script src="../../assets/js/main.js"></script>
+    <script src="../../components/navbar.js"></script>
+    <script src="../../components/footer.js"></script>
+</body>
+</html>
