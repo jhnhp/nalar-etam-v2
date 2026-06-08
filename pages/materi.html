@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Materi TKA | Nalar Etam</title>
+    
+    <!-- Google Fonts & Phosphor Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        brand: {
+                            50: '#eff6ff', 100: '#dbeafe', 200: '#bfdbfe', 300: '#93c5fd', 400: '#60a5fa',
+                            500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 800: '#1e40af', 900: '#1e3a8a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans text-slate-800 bg-slate-50 antialiased min-h-screen flex flex-col">
+
+    <div id="navbar-container"></div>
+
+    <main class="flex-grow pt-32 pb-20">
+        
+        <section class="max-w-5xl mx-auto px-4 sm:px-6 text-center mb-16">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 text-slate-700 font-semibold text-sm mb-6 border border-slate-200">
+                <i class="ph-fill ph-check-circle text-emerald-500 text-lg"></i>
+                Sesuai Kerangka Asesmen TKA Pusmendik
+            </div>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-6">
+                Cakupan Materi <span class="text-brand-600">TKA Matematika</span>
+            </h1>
+            <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+                Daftar lengkap topik yang akan kamu pelajari di Nalar Etam. Tidak ada materi hafalan yang terbuang percuma, semuanya terfokus pada kompetensi resmi.
+            </p>
+        </section>
+
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 space-y-12">
+
+            <!-- BAB 1: BILANGAN -->
+            <div class="bg-white rounded-[2rem] border border-blue-100 shadow-sm overflow-hidden">
+                <div class="bg-blue-50 border-b border-blue-100 p-6 md:p-8 flex items-center gap-4">
+                    <div class="w-14 h-14 bg-blue-600 text-white rounded-2xl flex items-center justify-center text-3xl font-bold flex-shrink-0 shadow-md">1</div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-blue-900">Bilangan</h2>
+                        <p class="text-blue-700 font-medium">Memahami, mengaplikasikan, dan bernalar terkait bilangan real.</p>
+                    </div>
+                </div>
+                <div class="p-6 md:p-8">
+                    <h3 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2"><i class="ph-duotone ph-list-numbers text-blue-600"></i> Bilangan Real</h3>
+                    <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-3 gap-x-6 text-slate-600">
+                        <li class="flex items-start gap-2"><i class="ph-bold ph-caret-right text-blue-400 mt-1"></i> Jenis bilangan</li>
+                        <li class="flex items-start gap-2"><i class="ph-bold ph-caret-right text-blue-400 mt-1"></i> Sifat bilangan</li>
+                        <li class="flex items-start gap-2"><i class="ph-bold ph-caret-right text-blue-400 mt-1"></i> Operasi bilangan</li>
+                        <li class="flex items-start gap-2"><i class="ph-bold ph-caret-right text-blue-400 mt-1"></i> Operasi campuran</li>
+                        <li class="flex items-start gap-2"><i class="ph-bold ph-caret-right text-blue-400 mt-1"></i> Bilangan berpangkat bulat</li>
+                        <li class="flex items-start gap-2"><i class="ph-bold ph-caret-right text-blue-400 mt-1"></i> Bilangan berpangkat pecahan</li>
+                        <li class="flex items-start gap-2"><i class="ph-bold ph-caret-right text-blue-400 mt-1"></i> Bentuk akar</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- BAB 2: ALJABAR -->
+            <div class="bg-white rounded-[2rem] border border-purple-100 shadow-sm overflow-hidden">
+                <div class="bg-purple-50 border-b border-purple-100 p-6 md:p-8 flex items-center gap-4">
+                    <div class="w-14 h-14 bg-purple-600 text-white rounded-2xl flex items-center justify-center text-3xl font-bold flex-shrink-0 shadow-md">2</div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-purple-900">Aljabar</h2>
+                        <p class="text-purple-700 font-medium">Fungsi, sistem persamaan, serta pola barisan dan deret.</p>
+                    </div>
+                </div>
+                <div class="p-6 md:p-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- A. Persamaan -->
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                        <h3 class="font-bold text-slate-800 mb-4 border-b border-slate-200 pb-2">A. Persamaan & Pertidaksamaan Linear</h3>
+                        <ul class="space-y-2 text-slate-600 mb-4 text-sm">
+                            <li class="flex items-start gap-2"><i class="ph-bold ph-check text-purple-500 mt-0.5"></i> Sistem Persamaan Linear Multivariabel</li>
+                            <li class="flex items-start gap-2"><i class="ph-bold ph-check text-purple-500 mt-0.5"></i> Sistem Pertidaksamaan Linear Multivariabel</li>
+                            <li class="flex items-start gap-2"><i class="ph-bold ph-check text-purple-500 mt-0.5"></i> Program Linear</li>
+                        </ul>
+                        <div class="bg-purple-100/50 p-3 rounded-lg text-xs text-purple-800 flex gap-2 items-start">
+                            <i class="ph-fill ph-info mt-0.5 text-purple-600"></i> Catatan: Maksimum tiga variabel.
+                        </div>
+                    </div>
+                    <!-- B. Fungsi -->
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                        <h3 class="font-bold text-slate-800 mb-4 border-b border-slate-200 pb-2">B. Fungsi</h3>
+                        <ul class="space-y-2 text-slate-600 mb-4 text-sm">
+                            <li class="flex items-start gap-2"><i class="ph-bold ph-check text-purple-500 mt-0.5"></i> Domain, Kodomain, Range</li>
+                            <li class="flex items-start gap-2"><i class="ph-bold ph-check text-purple-500 mt-0.5"></i> Fungsi Linear, Kuadrat, Rasional</li>
+                            <li class="flex items-start gap-2"><i class="ph-bold ph-check text-purple-500 mt-0.5"></i> Representasi Fungsi</li>
+                            <li class="flex items-start gap-2"><i class="ph-bold ph-check text-purple-500 mt-0.5"></i> Invers Fungsi</li>
+                            <li class="flex items-start gap-2"><i class="ph-bold ph-check text-purple-500 mt-0.5"></i> Komposisi Fungsi</li>
+                        </ul>
+                        <div class="bg-purple-100/50 p-3 rounded-lg text-xs text-purple-800 flex gap-2 items-start">
+                            <i class="ph-fill ph-info mt-0.5 text-purple-600"></i> Catatan: Dianalisis secara analitis & grafis.
+                        </div>
+                    </div>
+                    <!-- C. Barisan -->
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                        <h3 class="font-bold text-slate-800 mb-4 border-b border-slate-200 pb-2">C. Barisan & Deret</h3>
+                        <ul class="space-y-2 text-slate-600 text-sm">
+                            <li class="flex items-start gap-2"><i class="ph-bold ph-check text-purple-500 mt-0.5"></i> Barisan & Deret Aritmetika</li>
+                            <li class="flex items-start gap-2"><i class="ph-bold ph-check text-purple-500 mt-0.5"></i> Barisan & Deret Geometri</li>
+                            <li class="flex items-start gap-2"><i class="ph-bold ph-check text-purple-500 mt-0.5"></i> Pertumbuhan & Peluruhan</li>
+                            <li class="flex items-start gap-2"><i class="ph-bold ph-check text-purple-500 mt-0.5"></i> Bunga Tunggal & Majemuk</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BAB 3: GEOMETRI DAN PENGUKURAN -->
+            <div class="bg-white rounded-[2rem] border border-emerald-100 shadow-sm overflow-hidden">
+                <div class="bg-emerald-50 border-b border-emerald-100 p-6 md:p-8 flex items-center gap-4">
+                    <div class="w-14 h-14 bg-emerald-500 text-white rounded-2xl flex items-center justify-center text-3xl font-bold flex-shrink-0 shadow-md">3</div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-emerald-900">Geometri dan Pengukuran</h2>
+                        <p class="text-emerald-700 font-medium">Relasi objek spasial, transformasi, dan pemecahan masalah dimensi.</p>
+                    </div>
+                </div>
+                <div class="p-6 md:p-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- A. Objek Geometri -->
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 lg:col-span-1">
+                        <h3 class="font-bold text-slate-800 mb-4 border-b border-slate-200 pb-2">A. Objek Geometri</h3>
+                        <ul class="space-y-2 text-slate-600 mb-4 text-sm">
+                            <li class="flex items-start gap-2"><i class="ph-bold ph-shapes text-emerald-500 mt-0.5"></i> Hubungan sudut, garis, bidang</li>
+                            <li class="flex items-start gap-2"><i class="ph-bold ph-shapes text-emerald-500 mt-0.5"></i> Bangun datar & bangun ruang</li>
+                            <li class="flex items-start gap-2"><i class="ph-bold ph-shapes text-emerald-500 mt-0.5"></i> Kesebangunan & Kekongruenan</li>
+                            <li class="flex items-start gap-2"><i class="ph-bold ph-shapes text-emerald-500 mt-0.5"></i> Teorema Pythagoras</li>
+                        </ul>
+                        <div class="bg-emerald-100/50 p-3 rounded-lg text-xs text-emerald-800 space-y-2">
+                            <p><strong>Bangun Datar:</strong> Segitiga, Segiempat, Lingkaran, Gabungan.</p>
+                            <p><strong>Bangun Ruang:</strong> Sisi datar, Sisi lengkung.</p>
+                        </div>
+                    </div>
+                    <!-- B & C Stack -->
+                    <div class="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                            <h3 class="font-bold text-slate-800 mb-4 border-b border-slate-200 pb-2">B. Transformasi Geometri</h3>
+                            <ul class="space-y-2 text-slate-600 text-sm">
+                                <li class="flex items-start gap-2"><i class="ph-bold ph-arrows-out-cardinal text-emerald-500 mt-0.5"></i> Translasi (Pergeseran)</li>
+                                <li class="flex items-start gap-2"><i class="ph-bold ph-arrows-left-right text-emerald-500 mt-0.5"></i> Refleksi (Pencerminan)</li>
+                                <li class="flex items-start gap-2"><i class="ph-bold ph-arrows-clockwise text-emerald-500 mt-0.5"></i> Rotasi (Perputaran)</li>
+                                <li class="flex items-start gap-2"><i class="ph-bold ph-arrows-out text-emerald-500 mt-0.5"></i> Dilatasi (Perkalian)</li>
+                                <li class="flex items-start gap-2"><i class="ph-bold ph-intersect text-emerald-500 mt-0.5"></i> Komposisi transformasi</li>
+                            </ul>
+                        </div>
+                        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                            <h3 class="font-bold text-slate-800 mb-4 border-b border-slate-200 pb-2">C. Pengukuran</h3>
+                            <ul class="space-y-2 text-slate-600 text-sm">
+                                <li class="flex items-start gap-2"><i class="ph-bold ph-ruler text-emerald-500 mt-0.5"></i> Keliling & Luas bangun datar</li>
+                                <li class="flex items-start gap-2"><i class="ph-bold ph-cube text-emerald-500 mt-0.5"></i> Volume & Luas permukaan ruang</li>
+                                <li class="flex items-start gap-2"><i class="ph-bold ph-line-segments text-emerald-500 mt-0.5"></i> Jarak dua titik</li>
+                                <li class="flex items-start gap-2"><i class="ph-bold ph-line-segments text-emerald-500 mt-0.5"></i> Jarak titik ke garis/bidang</li>
+                                <li class="flex items-start gap-2"><i class="ph-bold ph-line-segments text-emerald-500 mt-0.5"></i> Jarak dua garis/bidang</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BAB 4: TRIGONOMETRI -->
+            <div class="bg-white rounded-[2rem] border border-rose-100 shadow-sm overflow-hidden">
+                <div class="bg-rose-50 border-b border-rose-100 p-6 md:p-8 flex items-center gap-4">
+                    <div class="w-14 h-14 bg-rose-500 text-white rounded-2xl flex items-center justify-center text-3xl font-bold flex-shrink-0 shadow-md">4</div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-rose-900">Trigonometri</h2>
+                        <p class="text-rose-700 font-medium">Analisis perbandingan dan rasio sudut.</p>
+                    </div>
+                </div>
+                <div class="p-6 md:p-8">
+                    <div class="flex flex-wrap gap-4">
+                        <span class="px-5 py-2 bg-rose-50 text-rose-700 border border-rose-200 rounded-full font-semibold">Sinus (Sin)</span>
+                        <span class="px-5 py-2 bg-rose-50 text-rose-700 border border-rose-200 rounded-full font-semibold">Cosinus (Cos)</span>
+                        <span class="px-5 py-2 bg-rose-50 text-rose-700 border border-rose-200 rounded-full font-semibold">Tangen (Tan)</span>
+                        <span class="px-5 py-2 bg-rose-50 text-rose-700 border border-rose-200 rounded-full font-semibold">Cotangen (Cot)</span>
+                        <span class="px-5 py-2 bg-rose-50 text-rose-700 border border-rose-200 rounded-full font-semibold">Secan (Sec)</span>
+                        <span class="px-5 py-2 bg-rose-50 text-rose-700 border border-rose-200 rounded-full font-semibold">Cosecan (Csc)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BAB 5: DATA DAN PELUANG -->
+            <div class="bg-white rounded-[2rem] border border-amber-100 shadow-sm overflow-hidden">
+                <div class="bg-amber-50 border-b border-amber-100 p-6 md:p-8 flex items-center gap-4">
+                    <div class="w-14 h-14 bg-amber-500 text-white rounded-2xl flex items-center justify-center text-3xl font-bold flex-shrink-0 shadow-md">5</div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-amber-900">Data dan Peluang</h2>
+                        <p class="text-amber-700 font-medium">Pengolahan statistik dan analisis probabilitas kejadian.</p>
+                    </div>
+                </div>
+                <div class="p-6 md:p-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- A. Data -->
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                        <h3 class="font-bold text-slate-800 mb-4 border-b border-slate-200 pb-2">A. Data (Statistika)</h3>
+                        <ul class="space-y-2 text-slate-600 text-sm">
+                            <li class="flex items-start gap-2"><i class="ph-bold ph-chart-bar text-amber-500 mt-0.5"></i> Diagram batang, garis, lingkaran, grafik, tabel</li>
+                            <li class="flex items-start gap-2"><i class="ph-bold ph-chart-bar text-amber-500 mt-0.5"></i> Visualisasi data</li>
+                            <li class="flex items-start gap-2"><i class="ph-bold ph-chart-bar text-amber-500 mt-0.5"></i> Ukuran pemusatan (Mean, Median, Modus)</li>
+                            <li class="flex items-start gap-2"><i class="ph-bold ph-chart-bar text-amber-500 mt-0.5"></i> Ukuran penyebaran data</li>
+                            <li class="flex items-start gap-2"><i class="ph-bold ph-chart-bar text-amber-500 mt-0.5"></i> Data tunggal & Data kelompok</li>
+                        </ul>
+                    </div>
+                    <!-- B. Peluang -->
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                        <h3 class="font-bold text-slate-800 mb-4 border-b border-slate-200 pb-2">B. Peluang</h3>
+                        <ul class="space-y-2 text-slate-600 text-sm">
+                            <li class="flex items-start gap-2"><i class="ph-bold ph-dice-three text-amber-500 mt-0.5"></i> Kaidah pencacahan</li>
+                            <li class="flex items-start gap-2"><i class="ph-bold ph-dice-three text-amber-500 mt-0.5"></i> Permutasi & Kombinasi</li>
+                            <li class="flex items-start gap-2"><i class="ph-bold ph-dice-three text-amber-500 mt-0.5"></i> Peluang kejadian tunggal</li>
+                            <li class="flex items-start gap-2"><i class="ph-bold ph-dice-three text-amber-500 mt-0.5"></i> Peluang majemuk</li>
+                            <li class="flex items-start gap-2"><i class="ph-bold ph-dice-three text-amber-500 mt-0.5"></i> Frekuensi harapan</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- CTA SECTION -->
+        <section class="max-w-4xl mx-auto px-4 sm:px-6 mt-20">
+            <div class="bg-gradient-to-br from-brand-600 to-brand-800 p-10 rounded-[2rem] shadow-xl text-center text-white relative overflow-hidden">
+                <div class="absolute -top-20 -right-20 w-64 h-64 bg-brand-500 rounded-full blur-[80px] opacity-50"></div>
+                
+                <h2 class="text-3xl font-bold mb-4 relative z-10">Siap untuk memulai?</h2>
+                <p class="text-brand-100 mb-8 max-w-lg mx-auto relative z-10">Mari mulai perjalanan belajarmu dari fondasi paling dasar. Kuasai konsep Bilangan sebelum melangkah lebih jauh.</p>
+                
+                <a href="../materi/bilangan/index.html" class="inline-flex items-center justify-center gap-2 bg-white text-brand-700 px-8 py-4 rounded-full font-bold hover:bg-slate-50 hover:shadow-lg hover:-translate-y-1 transition-all relative z-10">
+                    Mulai Belajar Bab 1: Bilangan <i class="ph-bold ph-arrow-right"></i>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="../components/navbar.js"></script>
+    <script src="../components/footer.js"></script>
+</body>
+</html>

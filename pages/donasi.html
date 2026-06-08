@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donasi | Nalar Etam</title>
+    
+    <!-- Google Fonts & Phosphor Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        brand: {
+                            50: '#eff6ff', 100: '#dbeafe', 200: '#bfdbfe', 300: '#93c5fd', 400: '#60a5fa',
+                            500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 800: '#1e40af', 900: '#1e3a8a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans text-slate-800 bg-slate-50 antialiased min-h-screen flex flex-col selection:bg-rose-500 selection:text-white">
+
+    <!-- Penampung Navbar Global -->
+    <div id="navbar-container"></div>
+
+    <main class="flex-grow pt-32 pb-20">
+        
+        <!-- 1. Hero Section -->
+        <section class="max-w-4xl mx-auto px-4 sm:px-6 text-center mb-16">
+            <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-rose-50 text-rose-500 mb-6 shadow-sm border border-rose-100">
+                <i class="ph-fill ph-heart text-4xl animate-pulse"></i>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-6">
+                Dukung <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-rose-500">Nalar Etam</span>
+            </h1>
+            <p class="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                Platform ini dikembangkan secara mandiri. Dukungan Anda membantu kami memastikan pendidikan matematika yang berkualitas tetap gratis untuk seluruh siswa Indonesia.
+            </p>
+        </section>
+
+        <!-- 2 & 3. Mengapa Donasi Dibutuhkan & Transparansi -->
+        <section class="max-w-5xl mx-auto px-4 sm:px-6 mb-20">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Mengapa Dibutuhkan -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
+                    <div class="flex items-center gap-3 mb-6">
+                        <i class="ph-duotone ph-question text-3xl text-brand-500"></i>
+                        <h2 class="text-2xl font-bold text-slate-900">Mengapa Berdonasi?</h2>
+                    </div>
+                    <p class="text-slate-600 mb-6">Kami tidak memasang iklan yang mengganggu agar fokus belajar siswa tetap terjaga. Donasi Anda menjadi urat nadi untuk:</p>
+                    <ul class="space-y-4 text-slate-700">
+                        <li class="flex items-start gap-3"><i class="ph-bold ph-check text-emerald-500 mt-1"></i> <span>Pengembangan teknis website.</span></li>
+                        <li class="flex items-start gap-3"><i class="ph-bold ph-check text-emerald-500 mt-1"></i> <span>Pembuatan simulasi interaktif yang kompleks.</span></li>
+                        <li class="flex items-start gap-3"><i class="ph-bold ph-check text-emerald-500 mt-1"></i> <span>Produksi materi dan ilustrasi visual.</span></li>
+                        <li class="flex items-start gap-3"><i class="ph-bold ph-check text-emerald-500 mt-1"></i> <span>Subsidi program kelas gratis mingguan.</span></li>
+                        <li class="flex items-start gap-3"><i class="ph-bold ph-check text-emerald-500 mt-1"></i> <span>Biaya sewa dan pemeliharaan server (Hosting).</span></li>
+                    </ul>
+                </div>
+
+                <!-- Transparansi -->
+                <div class="bg-slate-900 p-8 rounded-3xl border border-slate-800 shadow-md text-white">
+                    <div class="flex items-center gap-3 mb-6">
+                        <i class="ph-duotone ph-magnifying-glass text-3xl text-brand-400"></i>
+                        <h2 class="text-2xl font-bold text-white">Transparansi Dana</h2>
+                    </div>
+                    <p class="text-slate-300 mb-6">Kepercayaan Anda adalah amanah. Kami berkomitmen menyalurkan 100% donasi secara efisien untuk ekosistem pendidikan:</p>
+                    
+                    <div class="space-y-5">
+                        <div>
+                            <div class="flex justify-between text-sm mb-1 font-semibold">
+                                <span class="text-brand-200">Operasional Platform & Server</span>
+                                <span class="text-white">40%</span>
+                            </div>
+                            <div class="w-full bg-slate-700 rounded-full h-2"><div class="bg-brand-500 h-2 rounded-full" style="width: 40%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1 font-semibold">
+                                <span class="text-emerald-200">Produksi Konten & Fitur</span>
+                                <span class="text-white">35%</span>
+                            </div>
+                            <div class="w-full bg-slate-700 rounded-full h-2"><div class="bg-emerald-500 h-2 rounded-full" style="width: 35%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1 font-semibold">
+                                <span class="text-rose-200">Program Sosial (Kelas Gratis)</span>
+                                <span class="text-white">25%</span>
+                            </div>
+                            <div class="w-full bg-slate-700 rounded-full h-2"><div class="bg-rose-500 h-2 rounded-full" style="width: 25%"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Target Pengembangan -->
+        <section class="max-w-5xl mx-auto px-4 sm:px-6 mb-24">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">Target Pengembangan Selanjutnya</h2>
+                <p class="text-slate-600">Fitur-fitur yang sedang kami kerjakan dengan bantuan donasi Anda.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 text-center hover:border-brand-300 transition-colors">
+                    <div class="w-12 h-12 bg-blue-50 text-brand-600 rounded-full flex items-center justify-center text-2xl mx-auto mb-4"><i class="ph-fill ph-magic-wand"></i></div>
+                    <h3 class="font-bold text-slate-800 mb-2">Simulasi Interaktif Baru</h3>
+                    <p class="text-sm text-slate-500">Penambahan 20+ simulasi geometri ruang interaktif.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 text-center hover:border-purple-300 transition-colors">
+                    <div class="w-12 h-12 bg-purple-50 text-purple-600 rounded-full flex items-center justify-center text-2xl mx-auto mb-4"><i class="ph-fill ph-database"></i></div>
+                    <h3 class="font-bold text-slate-800 mb-2">Bank Soal TKA</h3>
+                    <p class="text-sm text-slate-500">Database 1000+ soal latihan HOTS terstruktur.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 text-center hover:border-emerald-300 transition-colors">
+                    <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center text-2xl mx-auto mb-4"><i class="ph-fill ph-chalkboard-teacher"></i></div>
+                    <h3 class="font-bold text-slate-800 mb-2">Kelas Gratis Reguler</h3>
+                    <p class="text-sm text-slate-500">Mentoring online gratis setiap akhir pekan.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 text-center hover:border-amber-300 transition-colors">
+                    <div class="w-12 h-12 bg-amber-50 text-amber-600 rounded-full flex items-center justify-center text-2xl mx-auto mb-4"><i class="ph-fill ph-chart-line-up"></i></div>
+                    <h3 class="font-bold text-slate-800 mb-2">Dashboard Progress</h3>
+                    <p class="text-sm text-slate-500">Fitur analitik bagi siswa melacak kelemahan materi.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5 & 6. Opsi Donasi (Saweria & QRIS) -->
+        <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-20">
+            <div class="bg-gradient-to-br from-slate-100 to-white p-2 rounded-[2.5rem] border border-slate-200 shadow-lg">
+                <div class="bg-white rounded-[2rem] p-8 md:p-12 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    
+                    <!-- Saweria -->
+                    <div class="text-center md:text-left">
+                        <h3 class="text-2xl font-bold text-slate-900 mb-4">Mulai Berdonasi</h3>
+                        <p class="text-slate-600 mb-8">Pilih nominal secara bebas. Anda bisa menyumbang mulai dari Rp10.000 melalui e-Wallet (OVO, GoPay, Dana, LinkAja) atau Transfer Bank.</p>
+                        
+                        <a href="https://saweria.co/" target="_blank" class="inline-flex items-center justify-center w-full md:w-auto gap-3 bg-[#E5A93D] text-white px-8 py-4 rounded-full font-bold hover:bg-[#d6992d] hover:-translate-y-1 hover:shadow-xl transition-all shadow-md">
+                            <i class="ph-bold ph-coffee text-xl"></i> Dukung via Saweria
+                        </a>
+                        <p class="text-xs text-slate-400 mt-4"><i class="ph-fill ph-lock-key"></i> Transaksi aman difasilitasi oleh gateway resmi.</p>
+                    </div>
+
+                    <!-- QRIS Placeholder -->
+                    <div class="flex flex-col items-center justify-center p-6 bg-slate-50 rounded-3xl border-2 border-dashed border-slate-300 relative">
+                        <div class="absolute -top-4 bg-white px-4 text-sm font-bold text-slate-500 border border-slate-200 rounded-full">Scan Langsung (QRIS)</div>
+                        
+                        <!-- QR Code Mockup -->
+                        <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 mt-4 mb-4">
+                            <div class="w-48 h-48 bg-slate-100 flex flex-col items-center justify-center border border-slate-200 rounded-xl relative overflow-hidden">
+                                <!-- Ornamen QR buatan -->
+                                <div class="absolute top-2 left-2 w-8 h-8 border-4 border-slate-800 rounded-sm"></div>
+                                <div class="absolute top-2 right-2 w-8 h-8 border-4 border-slate-800 rounded-sm"></div>
+                                <div class="absolute bottom-2 left-2 w-8 h-8 border-4 border-slate-800 rounded-sm"></div>
+                                <i class="ph-bold ph-qr-code text-6xl text-slate-400"></i>
+                                <span class="text-xs text-slate-400 mt-2 font-medium">Contoh QRIS</span>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center">
+                            <p class="font-bold text-slate-800">Nalar Etam Edukasi</p>
+                            <p class="text-xs text-slate-500">Scan menggunakan M-Banking / e-Wallet</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Ucapan Terima Kasih -->
+        <section class="max-w-2xl mx-auto px-4 sm:px-6 text-center">
+            <div class="text-rose-500 mb-4 text-2xl">
+                <i class="ph-fill ph-hands-clapping"></i>
+            </div>
+            <h3 class="text-xl font-bold text-slate-800 mb-3">Terima Kasih, Orang Baik!</h3>
+            <p class="text-slate-600 italic">
+                "Setiap rupiah yang Anda sisihkan adalah bata penyusun fondasi masa depan bagi siswa yang sedang berjuang menembus kampus impian mereka. Nalar Etam tidak akan ada tanpa dukungan Anda."
+            </p>
+        </section>
+
+    </main>
+
+    <!-- Penampung Footer Global -->
+    <div id="footer-container"></div>
+
+    <script src="../components/navbar.js"></script>
+    <script src="../components/footer.js"></script>
+</body>
+</html>

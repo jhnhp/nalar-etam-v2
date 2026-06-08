@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelas Gratis | Nalar Etam</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        brand: {
+                            50: '#eff6ff', 100: '#dbeafe', 200: '#bfdbfe', 300: '#93c5fd', 400: '#60a5fa',
+                            500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 800: '#1e40af', 900: '#1e3a8a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Styling khusus untuk native accordion (FAQ) agar lebih mulus */
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+        details[open] summary ~ * { animation: sweep .3s ease-in-out; }
+        @keyframes sweep {
+            0%    {opacity: 0; margin-top: -10px}
+            100%  {opacity: 1; margin-top: 0px}
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-800 bg-slate-50 antialiased min-h-screen flex flex-col">
+
+    <div id="navbar-container"></div>
+
+    <main class="flex-grow pt-32 pb-20">
+        
+        <section class="max-w-5xl mx-auto px-4 sm:px-6 text-center mb-16 relative">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-lg h-64 bg-emerald-100 rounded-full blur-[100px] opacity-60 -z-10"></div>
+            
+            <div class="inline-flex items-center justify-center w-20 h-20 rounded-3xl bg-emerald-50 text-emerald-500 mb-6 shadow-sm border border-emerald-100 rotate-3">
+                <i class="ph-duotone ph-student text-4xl"></i>
+            </div>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight mb-6">
+                Program <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-brand-500">Kelas Gratis</span>
+            </h1>
+            <p class="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                Belajar matematika bersama tanpa biaya. Kesempatan terbuka untuk semua siswa yang memiliki tekad menembus kampus impian.
+            </p>
+        </section>
+
+        <section class="max-w-3xl mx-auto px-4 sm:px-6 mb-20 text-center">
+            <div class="bg-white p-8 md:p-10 rounded-[2rem] border border-slate-200 shadow-sm relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-2 h-full bg-emerald-500"></div>
+                <h2 class="text-2xl font-bold text-slate-900 mb-4">Tentang Program Ini</h2>
+                <p class="text-slate-600 leading-relaxed text-lg">
+                    Kami percaya bahwa pendidikan berkualitas bukanlah hak eksklusif bagi mereka yang mampu membayar mahal. Program ini didedikasikan secara khusus agar siswa yang memiliki keterbatasan finansial tetap mendapatkan pendampingan belajar TKA Matematika yang setara dan bermutu tinggi.
+                </p>
+            </div>
+        </section>
+
+        <section class="max-w-5xl mx-auto px-4 sm:px-6 mb-24">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- Benefit Utama -->
+                <div class="lg:col-span-2">
+                    <h3 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2"><i class="ph-duotone ph-star text-amber-500"></i> Benefit Program</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm flex items-start gap-4 hover:border-brand-300 transition-colors">
+                            <div class="w-10 h-10 rounded-full bg-blue-50 text-brand-600 flex items-center justify-center text-xl flex-shrink-0"><i class="ph-bold ph-stack"></i></div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Pembelajaran Terstruktur</h4>
+                                <p class="text-sm text-slate-500 mt-1">Mengikuti kurikulum berjenjang.</p>
+                            </div>
+                        </div>
+                        <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm flex items-start gap-4 hover:border-brand-300 transition-colors">
+                            <div class="w-10 h-10 rounded-full bg-blue-50 text-brand-600 flex items-center justify-center text-xl flex-shrink-0"><i class="ph-bold ph-book-open"></i></div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Materi TKA Penuh</h4>
+                                <p class="text-sm text-slate-500 mt-1">Akses semua bab matematika.</p>
+                            </div>
+                        </div>
+                        <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm flex items-start gap-4 hover:border-brand-300 transition-colors">
+                            <div class="w-10 h-10 rounded-full bg-blue-50 text-brand-600 flex items-center justify-center text-xl flex-shrink-0"><i class="ph-bold ph-exam"></i></div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Pembahasan Soal</h4>
+                                <p class="text-sm text-slate-500 mt-1">Bedah trik dan penalaran soal.</p>
+                            </div>
+                        </div>
+                        <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm flex items-start gap-4 hover:border-brand-300 transition-colors">
+                            <div class="w-10 h-10 rounded-full bg-blue-50 text-brand-600 flex items-center justify-center text-xl flex-shrink-0"><i class="ph-bold ph-chats"></i></div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Sesi Diskusi</h4>
+                                <p class="text-sm text-slate-500 mt-1">Tanya jawab langsung dengan tutor.</p>
+                            </div>
+                        </div>
+                        <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm flex items-start gap-4 hover:border-brand-300 transition-colors">
+                            <div class="w-10 h-10 rounded-full bg-blue-50 text-brand-600 flex items-center justify-center text-xl flex-shrink-0"><i class="ph-bold ph-chalkboard-teacher"></i></div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Pendampingan</h4>
+                                <p class="text-sm text-slate-500 mt-1">Panduan belajar secara konsisten.</p>
+                            </div>
+                        </div>
+                        <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm flex items-start gap-4 hover:border-brand-300 transition-colors">
+                            <div class="w-10 h-10 rounded-full bg-blue-50 text-brand-600 flex items-center justify-center text-xl flex-shrink-0"><i class="ph-bold ph-users-three"></i></div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Komunitas Belajar</h4>
+                                <p class="text-sm text-slate-500 mt-1">Bertemu dengan pejuang PTN lainnya.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Siapa yang Cocok -->
+                <div class="bg-slate-900 rounded-[2rem] p-8 text-white shadow-lg">
+                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2"><i class="ph-duotone ph-target text-emerald-400"></i> Siapa yang cocok?</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3 bg-slate-800 p-3 rounded-xl border border-slate-700">
+                            <i class="ph-bold ph-check-circle text-emerald-400 text-xl"></i>
+                            <span class="font-medium text-slate-200">Siswa aktif SMA/MA/SMK</span>
+                        </li>
+                        <li class="flex items-center gap-3 bg-slate-800 p-3 rounded-xl border border-slate-700">
+                            <i class="ph-bold ph-check-circle text-emerald-400 text-xl"></i>
+                            <span class="font-medium text-slate-200">Alumni (Gap Year)</span>
+                        </li>
+                        <li class="flex items-center gap-3 bg-slate-800 p-3 rounded-xl border border-slate-700">
+                            <i class="ph-bold ph-check-circle text-emerald-400 text-xl"></i>
+                            <span class="font-medium text-slate-200">Persiapan TKA UTBK/Mandiri</span>
+                        </li>
+                        <li class="flex items-center gap-3 bg-slate-800 p-3 rounded-xl border border-slate-700">
+                            <i class="ph-bold ph-check-circle text-emerald-400 text-xl"></i>
+                            <span class="font-medium text-slate-200">Pejuang kampus impian</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="max-w-5xl mx-auto px-4 sm:px-6 mb-24">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">Mekanisme Bergabung</h2>
+                <p class="text-slate-600">Hanya 4 langkah mudah untuk memulai perjalanan belajarmu.</p>
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-between relative">
+                <!-- Garis Penghubung (Desktop) -->
+                <div class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-slate-200 -z-10 -translate-y-1/2"></div>
+                
+                <!-- Langkah 1 -->
+                <div class="flex flex-col items-center text-center mb-8 md:mb-0 bg-slate-50 md:bg-transparent px-4 py-6 rounded-2xl md:p-0 w-full md:w-1/4 relative">
+                    <div class="w-16 h-16 bg-white border-4 border-emerald-500 text-emerald-600 rounded-full flex items-center justify-center text-2xl font-bold mb-4 shadow-md z-10">1</div>
+                    <h4 class="font-bold text-slate-900 mb-2">Isi Formulir</h4>
+                    <p class="text-sm text-slate-600 px-2">Daftar melalui formulir online yang disediakan di halaman ini.</p>
+                </div>
+
+                <!-- Langkah 2 -->
+                <div class="flex flex-col items-center text-center mb-8 md:mb-0 bg-slate-50 md:bg-transparent px-4 py-6 rounded-2xl md:p-0 w-full md:w-1/4 relative">
+                    <div class="w-16 h-16 bg-white border-4 border-slate-300 text-slate-600 rounded-full flex items-center justify-center text-2xl font-bold mb-4 shadow-sm z-10">2</div>
+                    <h4 class="font-bold text-slate-900 mb-2">Seleksi Cepat</h4>
+                    <p class="text-sm text-slate-600 px-2">Review singkat untuk memastikan kuota tepat sasaran.</p>
+                </div>
+
+                <!-- Langkah 3 -->
+                <div class="flex flex-col items-center text-center mb-8 md:mb-0 bg-slate-50 md:bg-transparent px-4 py-6 rounded-2xl md:p-0 w-full md:w-1/4 relative">
+                    <div class="w-16 h-16 bg-white border-4 border-slate-300 text-slate-600 rounded-full flex items-center justify-center text-2xl font-bold mb-4 shadow-sm z-10">3</div>
+                    <h4 class="font-bold text-slate-900 mb-2">Masuk Grup</h4>
+                    <p class="text-sm text-slate-600 px-2">Terima link undangan untuk bergabung ke komunitas WhatsApp.</p>
+                </div>
+
+                <!-- Langkah 4 -->
+                <div class="flex flex-col items-center text-center bg-slate-50 md:bg-transparent px-4 py-6 rounded-2xl md:p-0 w-full md:w-1/4 relative">
+                    <div class="w-16 h-16 bg-brand-600 border-4 border-brand-200 text-white rounded-full flex items-center justify-center text-2xl font-bold mb-4 shadow-md z-10"><i class="ph-bold ph-flag-checkered"></i></div>
+                    <h4 class="font-bold text-slate-900 mb-2">Mulai Kelas</h4>
+                    <p class="text-sm text-slate-600 px-2">Akses materi dan ikuti kelas rutin setiap akhir pekan.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="max-w-4xl mx-auto px-4 sm:px-6 mb-24 grid grid-cols-1 md:grid-cols-2 gap-12">
+            
+            <!-- Jadwal -->
+            <div>
+                <h3 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2"><i class="ph-duotone ph-calendar-blank text-brand-500"></i> Jadwal Kelas</h3>
+                <div class="bg-gradient-to-br from-brand-600 to-blue-800 rounded-[2rem] p-8 text-white shadow-lg text-center h-full flex flex-col justify-center border border-brand-500">
+                    <i class="ph-duotone ph-video-camera text-5xl text-brand-200 mb-4 inline-block"></i>
+                    <h4 class="text-xl font-bold mb-2">Reguler Akhir Pekan</h4>
+                    <div class="bg-white/20 px-4 py-2 rounded-lg font-mono text-xl mb-4 inline-block backdrop-blur-sm mx-auto">
+                        15.00 - 16.30 WIB
+                    </div>
+                    <p class="text-brand-100 font-medium mb-4">Setiap Sabtu & Minggu</p>
+                    <div class="text-sm text-brand-200 bg-black/20 py-2 px-4 rounded-full inline-block mx-auto">
+                        <i class="ph-fill ph-monitor-play"></i> Live via Zoom / Google Meet
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ -->
+            <div>
+                <h3 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2"><i class="ph-duotone ph-question text-emerald-500"></i> Tanya Jawab (FAQ)</h3>
+                <div class="space-y-4">
+                    <!-- Q1 -->
+                    <details class="bg-white border border-slate-200 rounded-2xl group cursor-pointer shadow-sm" open>
+                        <summary class="font-bold text-slate-800 p-5 flex justify-between items-center outline-none">
+                            Apakah benar-benar 100% gratis?
+                            <i class="ph-bold ph-caret-down text-slate-400 group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <div class="px-5 pb-5 text-slate-600 text-sm border-t border-slate-100 pt-3">
+                            Ya, mutlak gratis. Tidak ada biaya pendaftaran, biaya bulanan, ataupun biaya tersembunyi.
+                        </div>
+                    </details>
+                    <!-- Q2 -->
+                    <details class="bg-white border border-slate-200 rounded-2xl group cursor-pointer shadow-sm">
+                        <summary class="font-bold text-slate-800 p-5 flex justify-between items-center outline-none">
+                            Apakah wajib membeli modul cetak?
+                            <i class="ph-bold ph-caret-down text-slate-400 group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <div class="px-5 pb-5 text-slate-600 text-sm border-t border-slate-100 pt-3">
+                            Tidak. Semua modul bacaan, simulasi interaktif, dan lembar latihan soal disediakan secara digital dan dapat diakses bebas di website Nalar Etam.
+                        </div>
+                    </details>
+                    <!-- Q3 -->
+                    <details class="bg-white border border-slate-200 rounded-2xl group cursor-pointer shadow-sm">
+                        <summary class="font-bold text-slate-800 p-5 flex justify-between items-center outline-none">
+                            Apakah siswa dari luar daerah bisa ikut?
+                            <i class="ph-bold ph-caret-down text-slate-400 group-open:rotate-180 transition-transform"></i>
+                        </summary>
+                        <div class="px-5 pb-5 text-slate-600 text-sm border-t border-slate-100 pt-3">
+                            Tentu saja bisa! Selama Anda memiliki koneksi internet yang stabil, Anda bisa bergabung dari kota atau provinsi mana pun di seluruh Indonesia.
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="max-w-4xl mx-auto px-4 sm:px-6">
+            <div class="bg-emerald-50 border-2 border-emerald-100 p-10 md:p-14 rounded-[2.5rem] text-center shadow-inner relative overflow-hidden">
+                <div class="absolute -top-10 -right-10 w-40 h-40 bg-emerald-200 rounded-full blur-[60px] opacity-50"></div>
+                <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-brand-200 rounded-full blur-[60px] opacity-50"></div>
+                
+                <h2 class="text-3xl font-bold text-slate-900 mb-4 relative z-10">Ambil langkah pertamamu hari ini!</h2>
+                <p class="text-slate-600 mb-8 max-w-lg mx-auto text-lg relative z-10">Kuota untuk gelombang berikutnya sangat terbatas. Segera daftarkan diri dan bersiap kuasai TKA Matematika bersama.</p>
+                
+                <div class="flex flex-col sm:flex-row justify-center gap-4 relative z-10">
+                    <a href="#" class="bg-emerald-500 text-white px-8 py-4 rounded-full font-bold hover:bg-emerald-600 hover:shadow-lg hover:-translate-y-1 transition-all flex justify-center items-center gap-2 text-lg shadow-emerald-500/30">
+                        <i class="ph-bold ph-pencil-simple"></i> Daftar Sekarang
+                    </a>
+                    <a href="kontak.html" class="bg-white text-emerald-700 border-2 border-emerald-200 px-8 py-4 rounded-full font-bold hover:border-emerald-500 transition-all flex justify-center items-center gap-2">
+                        Hubungi via WhatsApp <i class="ph-bold ph-whatsapp-logo text-xl"></i>
+                    </a>
+                </div>
+                <p class="text-xs text-slate-400 mt-6 relative z-10">*Tombol Daftar akan mengarahkan ke formulir Google Forms pengisian data.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="../components/navbar.js"></script>
+    <script src="../components/footer.js"></script>
+</body>
+</html>
